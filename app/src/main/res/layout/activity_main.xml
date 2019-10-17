@@ -6,48 +6,109 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/Activityname"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/Sparschwein"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Annuität berechnen"
-        android:textSize="25sp" />
+        android:src="@drawable/sparschwein" />
 
     <TextView
         android:id="@+id/Trennlinie1"
         android:layout_width="match_parent"
         android:layout_height="4dp"
-        android:background="#000000"
-        android:layout_below="@+id/Activityname" />
-
-    <ImageView
-        android:id="@+id/Sparschwein"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/sparschwein"
-        android:layout_below="@+id/Trennlinie1"/>
-
-    <TextView
-        android:id="@+id/Trennlinie2"
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:background="#000000"
+        android:background="#616161"
+        android:layout_marginTop="0dp"
         android:layout_below="@+id/Sparschwein" />
 
     <TextView
         android:id="@+id/Darlehenssumme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Darlehenssumme"
-        android:layout_below="@+id/Trennlinie2"/>
+        android:text="Darlehenssumme:"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/Trennlinie1"/>
 
 
     <EditText
         android:id="@+id/DarlehenssummeEingabe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/Trennlinie1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:hint="In Euro" />
+
+    <TextView
+        android:id="@+id/Zinssatz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zinssatz:"
+        android:layout_below="@+id/Darlehenssumme"
+        android:textSize="20sp"
+        android:layout_marginTop="50dp"/>
+
+
+    <EditText
+        android:id="@+id/ZinssatzEingabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Darlehenssumme"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:hint="In Prozent" />
+
+    <TextView
+        android:id="@+id/Laufzeit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Laufzeit:"
+        android:layout_below="@+id/Zinssatz"
+        android:textSize="20sp"
+        android:layout_marginTop="50dp"/>
+
+
+    <EditText
+        android:id="@+id/LaufzeitEingabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Zinssatz"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:hint="In Jahren" />
+
+    <TextView
+        android:id="@+id/Trennlinie2"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="#616161"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/Laufzeit" />
+
+    <Button
+        android:id="@+id/AnnuitätButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Annuität ermitteln"
         android:layout_below="@+id/Trennlinie2"
-        android:layout_toRightOf="@+id/Darlehenssumme"
-        android:text="In Euro" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:background="#ff6e40"/>
+
+    <Button
+        android:id="@+id/BerechnungsverlaufButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Berechnungsverlauf öffnen"
+        android:layout_below="@+id/AnnuitätButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:background="#ff6e40" />
+
+
 
 </RelativeLayout>
