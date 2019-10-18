@@ -1,11 +1,11 @@
 package com.example.annuittenrechner;
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
 
     private Button AnnuitätButton;
@@ -28,9 +28,24 @@ public class MainActivity extends AppCompatActivity {
         AnnuitätButton.setOnClickListener(this);
         BerechnungsverlaufButton.setOnClickListener(this);
 
-        int DarlehensSumme = Integer.valueOf(DarlehenssummeEingabe.getText().toString());
-        int Zinssatz = Integer.valueOf(ZinssatzEingabe.getText().toString());
-        int Laufzeit = Integer.valueOf(LaufzeitEingabe.getText().toString());
+        int DarlehensSumme;
+        int Zinssatz;
+        int Laufzeit;
+
+        int Annuität = 0;
 
     }
+    public void onClick(View view){
+
+            if(view == AnnuitätButton){
+                int DarlehensSumme = Integer.valueOf(DarlehenssummeEingabe.getText().toString());
+                int Zinssatz = Integer.valueOf(ZinssatzEingabe.getText().toString());
+                int Laufzeit = Integer.valueOf(LaufzeitEingabe.getText().toString());
+                int Annuität = DarlehensSumme * (Zinssatz*(1+Zinssatz)^Laufzeit)/((1+Laufzeit)^Laufzeit-1);
+            }
+            if(view == BerechnungsverlaufButton){
+            setContentView(R.layout.result_display);
+            }
+    }
+
 }
