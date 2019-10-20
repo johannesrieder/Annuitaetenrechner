@@ -13,9 +13,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private Button AnnuitätButton;
-    private EditText eTDarlehenssumme;
-    private EditText eTZinssatz;
-    private EditText eTLaufzeit;
+    EditText eTDarlehenssumme;
+    EditText eTZinssatz;
+    EditText eTLaufzeit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
