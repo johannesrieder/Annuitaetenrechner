@@ -25,22 +25,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AnnuitätButton.setOnClickListener(this);
     }
 
-    protected double leseDarlehenssumme(){
+    public double leseDarlehenssumme(){
         double ds = Double.parseDouble(eTDarlehenssumme.getText().toString());
         return ds;
     }
 
-    protected int leseZinssatz(){
+    public int leseZinssatz(){
         int zs = Integer.parseInt(eTZinssatz.getText().toString());
         return zs;
     }
 
-    protected int leseLaufzeit(){
+    public int leseLaufzeit(){
         int lz = Integer.parseInt(eTLaufzeit.getText().toString());
         return lz;
     }
 
-    protected double berechneAnnuität(double darlehenssumme, int zinssatz, int laufzeit) {
+    public double berechneAnnuität(double darlehenssumme, int zinssatz, int laufzeit) {
         double annuität = darlehenssumme * (Math.pow(1+zinssatz, laufzeit) * (zinssatz / (Math.pow(1+zinssatz, laufzeit) - 1)));
         return annuität;
     }
