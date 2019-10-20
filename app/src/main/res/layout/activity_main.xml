@@ -87,7 +87,7 @@
 
     <Button
         android:id="@+id/AnnuitätButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Annuität ermitteln"
         android:layout_below="@+id/Trennlinie2"
@@ -95,11 +95,11 @@
         android:layout_marginTop="15dp"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:background="#ff6e40"/>
+        android:background="@drawable/bordered_button_rieder" />
 
     <Button
         android:id="@+id/BerechnungsverlaufButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Berechnungsverlauf öffnen"
         android:layout_below="@+id/AnnuitätButton"
@@ -107,8 +107,7 @@
         android:layout_marginTop="25dp"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:background="#ff6e40" />
-
+        android:background="@drawable/bordered_button_rieder" />
 
 
 </RelativeLayout>
