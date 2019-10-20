@@ -1,21 +1,22 @@
 package com.example.annuittenrechner;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
+
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
 
-    private Button AnnuitätButton;
+    Button AnnuitätButton;
     EditText eTDarlehenssumme;
     EditText eTZinssatz;
     EditText eTLaufzeit;
+    TextView tVErgebnis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         AnnuitätButton = findViewById(R.id.AnnuitätButton);
         AnnuitätButton.setOnClickListener(this);
+        eTDarlehenssumme = findViewById(R.id.eTDarlehenssumme);
+        eTZinssatz = findViewById(R.id.eTZinssatz);
+        eTLaufzeit = findViewById(R.id.eTLaufzeit);
+
     }
 
     public double leseDarlehenssumme(){
@@ -51,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int laufzeit = leseLaufzeit();
         double annuität = berechneAnnuität(darlehenssumme, zinssatz, laufzeit);
         setContentView(R.layout.result_display);
-        TextView tVErgebnis = (TextView) findViewById(R.id.tVErgebnis);
+        TextView tVErgebnis = findViewById(R.id.tVErgebnis);
         tVErgebnis.setText(Double.toString(annuität));
     }
 
