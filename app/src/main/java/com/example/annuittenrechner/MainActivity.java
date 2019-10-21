@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public double leseZinssatz(){
-        double zs = Integer.parseInt(eTZinssatz.getText().toString());
+        double zs = Double.parseDouble(eTZinssatz.getText().toString());
         zs = zs/100;
         return zs;
     }
@@ -56,10 +56,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View view){
-        double darlehenssumme = leseDarlehenssumme();
-        double zinssatz = leseZinssatz();
-        int laufzeit = leseLaufzeit();
-        if (String.valueOf(darlehenssumme) != "" && String.valueOf(zinssatz) != "" && String.valueOf(laufzeit) != "") {
+        if (eTDarlehenssumme.getText().toString().isEmpty() == false && eTZinssatz.getText().toString().isEmpty() == false && eTLaufzeit.getText().toString().isEmpty() == false) {
+            double darlehenssumme = leseDarlehenssumme();
+            double zinssatz = leseZinssatz();
+            int laufzeit = leseLaufzeit();
             double annuität = berechneAnnuität(darlehenssumme, zinssatz, laufzeit);
             setContentView(R.layout.result_display);
             tVBetrag = findViewById(R.id.tVBetrag);
@@ -69,20 +69,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             tVErgebnis.setText(Double.toString(annuität));
             tVBetrag.setText(Double.toString(darlehenssumme));
             tVZinssatz.setText(Double.toString(zinssatz * 100));
-            tVLaufzeit.setText(Integer.toString(laufzeit)); }
-
-        else {
+            tVLaufzeit.setText(Integer.toString(laufzeit));
+            System.out.println("Die Eingabe ist vollständig!");
+        } else {
             System.out.println("Die Eingabe ist nicht vollständig!");
-            if (eTDarlehenssumme.getText().equals("")){
+            if (eTDarlehenssumme.getText().toString().isEmpty() == true){
                 eTDarlehenssumme.setBackgroundColor(Color.CYAN);
             }
-            if (eTZinssatz.getText().equals("")){
+            if (eTZinssatz.getText().toString().isEmpty() == true){
                 eTZinssatz.setBackgroundColor(Color.CYAN);
             }
-            if (eTLaufzeit.getText().equals("")){
+            if (eTLaufzeit.getText().toString().isEmpty() == true){
                 eTLaufzeit.setBackgroundColor(Color.CYAN);
             }
         }
     }
-
 }
