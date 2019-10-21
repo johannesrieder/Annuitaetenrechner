@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tVErgebnis"
-        android:text="Betrag: 140000 EURO"
+        android:text=""
         android:textSize="20sp"
         android:background="@android:color/holo_orange_light"/>
 
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tVBetrag"
-        android:text="Laufzeit: 15 Jahre"
+        android:text=""
         android:textSize="20sp"
         android:background="@android:color/holo_orange_light"/>
 
@@ -62,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tVLaufzeit"
-        android:text="Zinssatz: 5 %"
+        android:text=""
         android:textSize="20sp"
         android:background="@android:color/holo_orange_light"/>
 
@@ -89,8 +89,7 @@
         android:layout_below="@+id/bNeueBerechnung"
         android:text="Berechnungsverlauf"
         android:textSize="20sp"
-        android:background="@drawable/transparent_bg_bordered_button"
-        />
+        android:background="@drawable/transparent_bg_bordered_button" />
 
 
 

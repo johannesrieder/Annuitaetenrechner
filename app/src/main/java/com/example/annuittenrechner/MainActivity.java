@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText eTZinssatz;
     EditText eTLaufzeit;
     TextView tVErgebnis;
+    TextView tVBetrag;
+    TextView tVZinssatz;
+    TextView tVLaufzeit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         eTDarlehenssumme = findViewById(R.id.eTDarlehenssumme);
         eTZinssatz = findViewById(R.id.eTZinssatz);
         eTLaufzeit = findViewById(R.id.eTLaufzeit);
+        tVBetrag = findViewById(R.id.tVBetrag);
+        tVZinssatz = findViewById(R.id.tVZinssatz);
+
 
     }
 
@@ -35,8 +41,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return ds;
     }
 
-    public int leseZinssatz(){
-        int zs = Integer.parseInt(eTZinssatz.getText().toString());
+    public double leseZinssatz(){
+        double zs = Integer.parseInt(eTZinssatz.getText().toString());
+        zs = zs/100;
         return zs;
     }
 
@@ -45,19 +52,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return lz;
     }
 
-    public double berechneAnnuität(double darlehenssumme, int zinssatz, int laufzeit) {
+    public double berechneAnnuität(double darlehenssumme, double zinssatz, int laufzeit) {
         double annuität = darlehenssumme * (Math.pow(1+zinssatz, laufzeit) * (zinssatz / (Math.pow(1+zinssatz, laufzeit) - 1)));
+        annuität = Math.round(annuität*100.0)/100.0;
         return annuität;
     }
 
     public void onClick(View view){
         double darlehenssumme = leseDarlehenssumme();
-        int zinssatz = leseZinssatz();
+        double zinssatz = leseZinssatz();
         int laufzeit = leseLaufzeit();
         double annuität = berechneAnnuität(darlehenssumme, zinssatz, laufzeit);
         setContentView(R.layout.result_display);
         TextView tVErgebnis = findViewById(R.id.tVErgebnis);
         tVErgebnis.setText(Double.toString(annuität));
+        tVBetrag.setText(Double.toString(darlehenssumme));
+        tVZinssatz.setText(Double.toString(zinssatz*100));
+        tVLaufzeit.setText(Integer.toString(laufzeit));
+
+
     }
 
 }
