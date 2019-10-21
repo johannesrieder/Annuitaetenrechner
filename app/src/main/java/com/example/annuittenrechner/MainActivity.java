@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int laufzeit = leseLaufzeit();
             double annuität = berechneAnnuität(darlehenssumme, zinssatz, laufzeit);
             setContentView(R.layout.result_display);
-            tVBetrag = findViewById(R.id.tVBetrag);
+            tVBetrag = findViewById(R.id.tVDarlehenssumme);
             tVZinssatz = findViewById(R.id.tVZinssatz);
             tVErgebnis = findViewById(R.id.tVErgebnis);
             tVLaufzeit = findViewById(R.id.tVLaufzeit);
