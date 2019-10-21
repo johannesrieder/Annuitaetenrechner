@@ -31,28 +31,39 @@
         android:background="@android:color/holo_orange_dark"/>
 
     <TextView
-        android:id="@+id/tVBetrag"
+        android:id="@+id/tVTitleDarlehenssumme"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tVErgebnis"
-        android:text=""
-        android:textSize="20sp"
-        android:background="@android:color/holo_orange_light"/>
+        android:text="Darlehenssumme"
+        android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/tVLaufzeit"
+        android:id="@+id/tVDarlehenssumme"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tVBetrag"
+        android:layout_below="@+id/tVErgebnis"
+        android:layout_toRightOf="@+id/tVTitleDarlehenssumme"
         android:text=""
         android:textSize="20sp"
         android:background="@android:color/holo_orange_light"/>
+
+    <TextView
+        android:id="@+id/tVTitleZinssatz"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tVTitleDarlehenssumme"
+        android:text="Zinssatz"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tVZinssatz"
@@ -61,7 +72,32 @@
         android:layout_marginRight="60dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tVLaufzeit"
+        android:layout_below="@+id/tVDarlehenssumme"
+        android:layout_toRightOf="@+id/tVTitleZinssatz"
+        android:text=""
+        android:textSize="20sp"
+        android:background="@android:color/holo_orange_light"/>
+
+    <TextView
+        android:id="@+id/tVTitleLaufzeit"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tVTitleZinssatz"
+        android:text="Laufzeit"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tVLaufzeit"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tVZinssatz"
+        android:layout_toRightOf="@+id/tVTitleLaufzeit"
         android:text=""
         android:textSize="20sp"
         android:background="@android:color/holo_orange_light"/>
@@ -90,7 +126,5 @@
         android:text="Berechnungsverlauf"
         android:textSize="20sp"
         android:background="@drawable/transparent_bg_bordered_button" />
-
-
 
 </RelativeLayout>
