@@ -87,7 +87,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             Toast laufzeitToast =
                                     Toast.makeText(this, "Eingaben unvollständig!",Toast.LENGTH_LONG);
-                                    laufzeitToast.
                                     laufzeitToast.show();
                                     return;
         }
