@@ -1,9 +1,11 @@
 package com.example.annuittenrechner;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView tVBetrag;
     TextView tVZinssatz;
     TextView tVLaufzeit;
+    ImageView iVhelpicon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         eTDarlehenssumme = findViewById(R.id.eTDarlehenssumme);
         eTZinssatz = findViewById(R.id.eTZinssatz);
         eTLaufzeit = findViewById(R.id.eTLaufzeit);
+        iVhelpicon = findViewById(R.id.iVhelpicon);
     }
+
 
     public double leseDarlehenssumme() {
         double ds = Double.parseDouble(eTDarlehenssumme.getText().toString());
@@ -61,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View view) {
+
         if (view == AnnuitätButton) {
             if (eTDarlehenssumme.getText().toString().isEmpty() == false && eTZinssatz.getText().toString().isEmpty() == false && eTLaufzeit.getText().toString().isEmpty() == false) {
                 double darlehenssumme = leseDarlehenssumme();
@@ -94,8 +100,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 laufzeitToast.show();
                 return;
             }
-        } else () {
+        } if(view == BerechnungsverlaufButton){
             setContentView(R.layout.verlauf_display);
+        }
+        if(view == iVhelpicon){
+            setContentView(R.layout.hilfe_display);
         }
     }
 }
