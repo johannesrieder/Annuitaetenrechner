@@ -30,9 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         eTDarlehenssumme = findViewById(R.id.eTDarlehenssumme);
         eTZinssatz = findViewById(R.id.eTZinssatz);
         eTLaufzeit = findViewById(R.id.eTLaufzeit);
+        tVErgebnis = findViewById(R.id.tVErgebnis);
         tVBetrag = findViewById(R.id.tVBetrag);
         tVZinssatz = findViewById(R.id.tVZinssatz);
-
+        tVLaufzeit = findViewById(R.id.tVLaufzeit);
 
     }
 
@@ -64,13 +65,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int laufzeit = leseLaufzeit();
         double annuität = berechneAnnuität(darlehenssumme, zinssatz, laufzeit);
         setContentView(R.layout.result_display);
-        TextView tVErgebnis = findViewById(R.id.tVErgebnis);
         tVErgebnis.setText(Double.toString(annuität));
         tVBetrag.setText(Double.toString(darlehenssumme));
-        tVZinssatz.setText(Double.toString(zinssatz*100));
+        tVZinssatz.setText(Double.toString(zinssatz));
         tVLaufzeit.setText(Integer.toString(laufzeit));
-
-
     }
 
 }
