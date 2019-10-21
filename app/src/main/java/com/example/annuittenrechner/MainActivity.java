@@ -6,6 +6,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -74,14 +76,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             System.out.println("Die Eingabe ist nicht vollständig!");
             if (eTDarlehenssumme.getText().toString().isEmpty() == true){
-                eTDarlehenssumme.setBackgroundColor(Color.CYAN);
+                eTDarlehenssumme.setHintTextColor(Color.RED);
             }
             if (eTZinssatz.getText().toString().isEmpty() == true){
-                eTZinssatz.setBackgroundColor(Color.CYAN);
+                eTZinssatz.setHintTextColor(Color.RED);
             }
             if (eTLaufzeit.getText().toString().isEmpty() == true){
-                eTLaufzeit.setBackgroundColor(Color.CYAN);
+                eTLaufzeit.setHintTextColor(Color.RED);
+
             }
+            Toast laufzeitToast =
+                                    Toast.makeText(this, "Eingaben unvollständig!",Toast.LENGTH_LONG);
+                                    laufzeitToast.
+                                    laufzeitToast.show();
+                                    return;
         }
     }
 }
