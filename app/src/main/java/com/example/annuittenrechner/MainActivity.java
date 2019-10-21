@@ -69,17 +69,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             tVErgebnis.setText(Double.toString(annuität));
             tVBetrag.setText(Double.toString(darlehenssumme));
             tVZinssatz.setText(Double.toString(zinssatz * 100));
-            tVLaufzeit.setText(Integer.toString(laufzeit));
-        } else {
+            tVLaufzeit.setText(Integer.toString(laufzeit)); }
+
+        else {
             System.out.println("Die Eingabe ist nicht vollständig!");
-            if (String.valueOf(darlehenssumme) == ""){
-                eTDarlehenssumme.setBackgroundColor(Color.parseColor("#FF0000"));
+            if (eTDarlehenssumme.getText().equals("")){
+                eTDarlehenssumme.setBackgroundColor(Color.CYAN);
             }
-            if (String.valueOf(zinssatz) == ""){
-                eTZinssatz.setBackgroundColor(Color.parseColor("#FF0000"));
+            if (eTZinssatz.getText().equals("")){
+                eTZinssatz.setBackgroundColor(Color.CYAN);
             }
-            if (String.valueOf(laufzeit) == ""){
-                eTLaufzeit.setBackgroundColor(Color.parseColor("#FF0000"));
+            if (eTLaufzeit.getText().equals("")){
+                eTLaufzeit.setBackgroundColor(Color.CYAN);
             }
         }
     }
