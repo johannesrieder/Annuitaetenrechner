@@ -1,5 +1,6 @@
 package com.example.annuittenrechner;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,8 +31,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         eTDarlehenssumme = findViewById(R.id.eTDarlehenssumme);
         eTZinssatz = findViewById(R.id.eTZinssatz);
         eTLaufzeit = findViewById(R.id.eTLaufzeit);
-
-
     }
 
     public double leseDarlehenssumme(){
@@ -60,19 +59,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         double darlehenssumme = leseDarlehenssumme();
         double zinssatz = leseZinssatz();
         int laufzeit = leseLaufzeit();
-        double annuität = berechneAnnuität(darlehenssumme, zinssatz, laufzeit);
-        setContentView(R.layout.result_display);
-        tVBetrag = findViewById(R.id.tVBetrag);
-        tVZinssatz = findViewById(R.id.tVZinssatz);
-        tVErgebnis = findViewById(R.id.tVErgebnis);
-        tVLaufzeit = findViewById(R.id.tVLaufzeit);
-
-        tVErgebnis.setText(Double.toString(annuität));
-        tVBetrag.setText(Double.toString(darlehenssumme));
-        tVZinssatz.setText(Double.toString(zinssatz*100));
-        tVLaufzeit.setText(Integer.toString(laufzeit));
-
-
+        if (String.valueOf(darlehenssumme) != "" && String.valueOf(zinssatz) != "" && String.valueOf(laufzeit) != "") {
+            double annuität = berechneAnnuität(darlehenssumme, zinssatz, laufzeit);
+            setContentView(R.layout.result_display);
+            tVBetrag = findViewById(R.id.tVBetrag);
+            tVZinssatz = findViewById(R.id.tVZinssatz);
+            tVErgebnis = findViewById(R.id.tVErgebnis);
+            tVLaufzeit = findViewById(R.id.tVLaufzeit);
+            tVErgebnis.setText(Double.toString(annuität));
+            tVBetrag.setText(Double.toString(darlehenssumme));
+            tVZinssatz.setText(Double.toString(zinssatz * 100));
+            tVLaufzeit.setText(Integer.toString(laufzeit));
+        } else {
+            System.out.println("Die Eingabe ist nicht vollständig!");
+            if (String.valueOf(darlehenssumme) == ""){
+                eTDarlehenssumme.setBackgroundColor(Color.parseColor("#FF0000"));
+            }
+            if (String.valueOf(zinssatz) == ""){
+                eTZinssatz.setBackgroundColor(Color.parseColor("#FF0000"));
+            }
+            if (String.valueOf(laufzeit) == ""){
+                eTLaufzeit.setBackgroundColor(Color.parseColor("#FF0000"));
+            }
+        }
     }
 
 }
