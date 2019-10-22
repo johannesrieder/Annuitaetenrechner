@@ -64,32 +64,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void onClick(View view) {
         if (view == AnnuitätButton) {
-            if (eTDarlehenssumme.getText().toString().isEmpty() == false && eTZinssatz.getText().toString().isEmpty() == false && eTLaufzeit.getText().toString().isEmpty() == false) {
-                double darlehenssumme = leseDarlehenssumme();
-                double zinssatz = leseZinssatz();
-                int laufzeit = leseLaufzeit();
-                double annuität = berechneAnnuität(darlehenssumme, zinssatz, laufzeit);
-                setContentView(R.layout.result_display);
+            if (!eTDarlehenssumme.getText().toString().isEmpty() && !eTZinssatz.getText().toString().isEmpty() && !eTLaufzeit.getText().toString().isEmpty()) {
+
                 tVBetrag = findViewById(R.id.tVDarlehenssumme);
                 tVZinssatz = findViewById(R.id.tVZinssatz);
                 tVErgebnis = findViewById(R.id.tVErgebnis);
                 tVLaufzeit = findViewById(R.id.tVLaufzeit);
-                tVErgebnis.setText(Double.toString(annuität));
-                tVBetrag.setText(Double.toString(darlehenssumme));
-                tVZinssatz.setText(Double.toString(zinssatz * 100));
-                tVLaufzeit.setText(Integer.toString(laufzeit));
-                System.out.println("Die Eingabe ist vollständig!");
+
+                Intent intent = new Intent(this, Ergebnis.class);
+                String annuität = Double.toString(berechneAnnuität(leseDarlehenssumme(),leseZinssatz(),leseLaufzeit()));
+                intent.putExtra("annuität", annuität);
+                String darlehenssumme = Double.toString(leseDarlehenssumme());
+                intent.putExtra("darlehenssumme", darlehenssumme);
+                String zinssatz = Double.toString(leseZinssatz());
+                intent.putExtra("zinssatz", zinssatz);
+                String laufzeit = Double.toString(leseLaufzeit());
+                intent.putExtra("laufzeit", laufzeit);
+
+                startActivity(intent);
+
             } else {
                 System.out.println("Die Eingabe ist nicht vollständig!");
-                if (eTDarlehenssumme.getText().toString().isEmpty() == true) {
+                if (eTDarlehenssumme.getText().toString().isEmpty()) {
                     eTDarlehenssumme.setHintTextColor(Color.RED);
                 }
-                if (eTZinssatz.getText().toString().isEmpty() == true) {
+                if (eTZinssatz.getText().toString().isEmpty()) {
                     eTZinssatz.setHintTextColor(Color.RED);
                 }
-                if (eTLaufzeit.getText().toString().isEmpty() == true) {
+                if (eTLaufzeit.getText().toString().isEmpty()) {
                     eTLaufzeit.setHintTextColor(Color.RED);
-
                 }
                 Toast laufzeitToast =
                         Toast.makeText(this, "Eingaben unvollständig!", Toast.LENGTH_LONG);
@@ -97,10 +100,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return;
             }
         } if(view == BerechnungsverlaufButton){
-            setContentView(R.layout.verlauf_display);
+            Intent intent = new Intent(this, Verlauf.class);
+            startActivity(intent);
+
         }
         if(view == iVhelpicon){
-            setContentView(R.layout.hilfe_display);
+            Intent intent = new Intent(this, Hilfe.class);
+            startActivity(intent);
         }
     }
 }
