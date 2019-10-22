@@ -9,13 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
 
     Button AnnuitätButton;
     Button BerechnungsverlaufButton;
@@ -66,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View view) {
-
         if (view == AnnuitätButton) {
             if (eTDarlehenssumme.getText().toString().isEmpty() == false && eTZinssatz.getText().toString().isEmpty() == false && eTLaufzeit.getText().toString().isEmpty() == false) {
                 double darlehenssumme = leseDarlehenssumme();

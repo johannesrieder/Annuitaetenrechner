@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#192a56">
+    android:background="#FFFFFF">
 
     <TextView
         android:id="@+id/tvHeader"
@@ -15,7 +15,18 @@
         android:layout_marginTop="60dp"
         android:layout_marginRight="40dp"
         android:text="Ergebnis"
-        android:textSize="40sp" />
+        android:textSize="40sp"/>
+    <ImageView
+        android:id="@+id/imageHeader2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_below="@+id/tvHeader"
+        android:src="@drawable/pic2"/>
 
     <TextView
         android:id="@+id/tVErgebnis"
@@ -24,7 +35,7 @@
         android:layout_marginRight="60dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_below="@+id/tvHeader"
+        android:layout_below="@+id/imageHeader2"
         android:text="2000 Euro"
         android:textAlignment="center"
         android:gravity="center"
