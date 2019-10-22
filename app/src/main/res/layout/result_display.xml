@@ -7,6 +7,13 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <ImageView
+        android:id="@+id/imageHeader2"
+        android:layout_width="203dp"
+        android:layout_height="265dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/pic2" />
+
     <TextView
         android:id="@+id/tvHeader"
         android:layout_width="wrap_content"
@@ -15,18 +22,8 @@
         android:layout_marginTop="60dp"
         android:layout_marginRight="40dp"
         android:text="Ergebnis"
+        android:layout_below="@+id/imageHeader2"
         android:textSize="40sp"/>
-    <ImageView
-        android:id="@+id/imageHeader2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_below="@+id/tvHeader"
-        android:src="@drawable/pic2"/>
 
     <TextView
         android:id="@+id/tVErgebnis"
