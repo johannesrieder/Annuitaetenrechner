@@ -2,6 +2,7 @@ package com.example.annuittenrechner;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         AnnuitätButton = findViewById(R.id.AnnuitätButton);
         AnnuitätButton.setOnClickListener(this);
+        AnnuitätButton.setOnClickListener(view -> {saveAnnuitaetOnClick();
+        });
+
 
         BerechnungsverlaufButton = findViewById(R.id.BerechnungsverlaufButton);
         BerechnungsverlaufButton.setOnClickListener(this);
@@ -85,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String laufzeit = Double.toString(leseLaufzeit());
                 intent.putExtra("laufzeit", laufzeit);
                 startActivity(intent);
+                saveAnnuitaetOnClick();
 
             } else {
                 if (eTDarlehenssumme.getText().toString().isEmpty()) {
@@ -109,6 +114,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(view == iVhelpicon){
             Intent intent = new Intent(this, Hilfe.class);
             startActivity(intent);
+        }
+    }
+
+    private void saveAnnuitaetOnClick() {
+        EditText eTAnnuitaet = findViewById(R.id.eTAnnuitaet);
+        if(!eTAnnuitaet.getText().toString().isEmpty()){
+            new SpeichernTask()
+                    .execute(new Annuitaet(eTAnnuitaet.getText().toString()));
+        }
+    }
+
+    class SpeichernTask extends AsyncTask<Annuitaet, Void, Void>{
+
+        @Override
+        protected Void doInBackground(Annuitaet... annuitaets) {
+            dao.insert(annuitaets[0]);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid){
+            super.onPostExecute(aVoid);
         }
     }
 }

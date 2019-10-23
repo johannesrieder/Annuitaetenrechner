@@ -21,14 +21,19 @@ public class Ergebnis extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ergebnis_display);
+
+        NeueBerechnung = findViewById(R.id.bNeueBerechnung);
+        NeueBerechnung.setOnClickListener(this);
+        Berechnungsverlauf = findViewById(R.id.bBerechnungsverlauf);
+        Berechnungsverlauf.setOnClickListener((view) -> {
+            Intent intent = new Intent(this, Verlauf.class);
+            startActivity(intent);
+        });
+
         Ergebnis = findViewById(R.id.tVErgebnis);
         Darlehenssumme = findViewById(R.id.tVDarlehenssumme);
         Zinssatz = findViewById(R.id.tVZinssatz);
         Laufzeit = findViewById(R.id.tVLaufzeit);
-        NeueBerechnung = findViewById(R.id.bNeueBerechnung);
-        Berechnungsverlauf = findViewById(R.id.bBerechnungsverlauf);
-        NeueBerechnung.setOnClickListener(this);
-        Berechnungsverlauf.setOnClickListener(this);
 
         Intent intent = getIntent();
         String annuität = intent.getStringExtra("annuität");
