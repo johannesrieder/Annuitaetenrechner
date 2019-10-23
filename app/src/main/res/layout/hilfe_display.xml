@@ -1,9 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Hilfe">
+    tools:context=".Hilfe"
+    android:background="#FFFFFF">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tVHilfe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Hilfeseite"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="#212121"/>
+
+    <TextView
+        android:id="@+id/Trennlinie1"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="#373737"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/tVHilfe" />
+
+    <TextView
+        android:id="@+id/tVErläuterungTitel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Erläuterung Annuität"
+        android:layout_below="@+id/Trennlinie1"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="#212121"/>
+
+    <TextView
+        android:id="@+id/tVErläuterung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jahreszahlung an Zinsen und Tilgungsraten bei der Amortisation 1 einer Schuld"
+        android:layout_below="@+id/tVErläuterungTitel"/>
+
+    <TextView
+        android:id="@+id/tVFormelTitel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Formel Annuität"
+        android:layout_below="@+id/tVErläuterung"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="#212121"/>
+
+    <TextView
+        android:id="@+id/tVFormel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jahreszahlung an Zinsen und Tilgungsraten bei der Amortisation 1 einer Schuld"
+        android:layout_below="@+id/tVFormelTitel"/>
+
+    <TextView
+        android:id="@+id/tVErläuterungFormelTitel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Erläuterung Formel"
+        android:layout_below="@+id/tVFormel"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="#212121"/>
+
+    <TextView
+        android:id="@+id/tVErläuterungFormel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jahreszahlung an Zinsen und Tilgungsraten bei der Amortisation 1 einer Schuld"
+        android:layout_below="@+id/tVErläuterungFormelTitel"/>
+
+</RelativeLayout>
