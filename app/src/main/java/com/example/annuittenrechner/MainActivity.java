@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private AnnuitaetDao dao;
+
     Button AnnuitätButton;
     Button BerechnungsverlaufButton;
     EditText eTDarlehenssumme;
@@ -29,16 +31,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dao = AnnuitaetRoomDatabase.getDatabase(this).annuitaetDao();
+
         AnnuitätButton = findViewById(R.id.AnnuitätButton);
         AnnuitätButton.setOnClickListener(this);
+
         BerechnungsverlaufButton = findViewById(R.id.BerechnungsverlaufButton);
         BerechnungsverlaufButton.setOnClickListener(this);
+
         eTDarlehenssumme = findViewById(R.id.eTDarlehenssumme);
         eTZinssatz = findViewById(R.id.eTZinssatz);
         eTLaufzeit = findViewById(R.id.eTLaufzeit);
         iVhelpicon = findViewById(R.id.iVhelpicon);
     }
-
 
     public double leseDarlehenssumme() {
         double ds = Double.parseDouble(eTDarlehenssumme.getText().toString());
@@ -79,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String laufzeit = Double.toString(leseLaufzeit());
                 intent.putExtra("laufzeit", laufzeit);
                 startActivity(intent);
+
             } else {
                 if (eTDarlehenssumme.getText().toString().isEmpty()) {
                     eTDarlehenssumme.setHintTextColor(Color.RED);
