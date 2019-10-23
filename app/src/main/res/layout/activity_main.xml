@@ -27,8 +27,8 @@
 
     <ImageView
         android:id="@+id/imageHeader"
-        android:layout_width="268dp"
-        android:layout_height="236dp"
+        android:layout_width="270dp"
+        android:layout_height="240dp"
         android:layout_below="@+id/tVTitel"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,137 +7,159 @@
     tools:context=".Hilfe"
     android:background="#FFFFFF">
 
-    <TextView
-        android:id="@+id/tVHilfe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Hilfeseite"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:textColor="#212121"/>
-
-    <TextView
-        android:id="@+id/Trennlinie1"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:background="#373737"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/tVHilfe" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tVErläuterungTitel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Erläuterung Annuität"
-        android:layout_below="@+id/Trennlinie1"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="#212121"
-        android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/tVHilfe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Hilfeseite"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="#212121"/>
 
-    <TextView
-        android:id="@+id/tVErläuterung"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jahreszahlung an Zinsen und Tilgungsraten bei der Amorti-
-        sation einer Schuld. (Duden, 2019)"
-        android:layout_below="@+id/tVErläuterungTitel" />
+        <TextView
+            android:id="@+id/Trennlinie1"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="#373737"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/tVHilfe" />
 
-    <TextView
-        android:id="@+id/tVFormelTitel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Formel Annuität"
-        android:layout_below="@+id/tVErläuterung"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="#212121"
-        android:layout_marginTop="10dp"/>
+        <ImageView
+            android:id="@+id/hilfeheader"
+            android:layout_width="280dp"
+            android:layout_height="240dp"
+            android:layout_below="@+id/Trennlinie1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/hilfeheader" />
 
-    <ImageView
-        android:id="@+id/iVFormel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/formel"
-        android:layout_below="@+id/tVFormelTitel"/>
+        <TextView
+            android:id="@+id/Trennlinie2"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="#373737"
+            android:layout_below="@+id/hilfeheader" />
 
-    <TextView
-        android:id="@+id/tVErläuterungFormelTitel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Erläuterung Formel"
-        android:layout_below="@+id/iVFormel"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="#212121"
-        android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/tVErläuterungTitel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Erläuterung Annuität"
+            android:layout_below="@+id/Trennlinie2"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#212121"
+            android:layout_marginTop="10dp"/>
 
-    <TextView
-        android:id="@+id/tVErläuterungFormel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Herr Bauer erbt am 1. Januar 2004  10.000€. Er denkt darüber nach, diesen Betrag in den kommenden 3 Jahren auszugeben. Die Annuität kann in diesem Fall folgende Frage beantworten:"
-        android:layout_below="@+id/tVErläuterungFormelTitel" />
+        <TextView
+            android:id="@+id/tVErläuterung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jahreszahlung an Zinsen und Tilgungsraten bei der Amortisation einer Schuld. (Duden, 2019)"
+            android:layout_below="@+id/tVErläuterungTitel" />
 
-    <TextView
-        android:id="@+id/tVErläuterungFormel2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcher Geldbetrag steht ihm jedes Jahr zur Verfügung, wenn der Kalkulationszinssatz 5 % beträgt und das Geld nach 7 Jahren aufgebraucht sein darf?"
-        android:textStyle="italic"
-        android:layout_below="@+id/tVErläuterungFormel"
-        android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/tVFormelTitel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Formel Annuität"
+            android:layout_below="@+id/tVErläuterung"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#212121"
+            android:layout_marginTop="10dp"/>
 
-    <ImageView
-        android:id="@+id/iVberechnung"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/beispielrechnung"
-        android:layout_below="@id/tVErläuterungFormel2"
-        android:layout_marginTop="10dp"/>
+        <ImageView
+            android:id="@+id/iVFormel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/formel"
+            android:layout_below="@+id/tVFormelTitel"/>
 
-    <TextView
-        android:id="@+id/tVErgebnisBeispiel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Die Annuität beträgt somit 1.728,20€."
-        android:layout_below="@+id/iVberechnung"
-        android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/tVErläuterungFormelTitel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Erläuterung Formel"
+            android:layout_below="@+id/iVFormel"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#212121"
+            android:layout_marginTop="10dp"/>
 
-    <TextView
-        android:id="@+id/Trennlinie4"
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:background="#373737"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/tVErgebnisBeispiel" />
+        <TextView
+            android:id="@+id/tVErläuterungFormel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Herr Bauer erbt am 1. Januar 2004  10.000€. Er denkt darüber nach, diesen Betrag in den kommenden 3 Jahren auszugeben. Die Annuität kann in diesem Fall folgende Frage beantworten:"
+            android:layout_below="@+id/tVErläuterungFormelTitel" />
 
-    <Button
-        android:id="@+id/bStartseite"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Neue Berechnung"
-        android:layout_below="@+id/Trennlinie4"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:background="@drawable/bordered_button_rieder" />
+        <TextView
+            android:id="@+id/tVErläuterungFormel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcher Geldbetrag steht ihm jedes Jahr zur Verfügung, wenn der Kalkulationszinssatz 5 % beträgt und das Geld nach 7 Jahren aufgebraucht sein darf?"
+            android:textStyle="italic"
+            android:layout_below="@+id/tVErläuterungFormel"
+            android:layout_marginTop="10dp"/>
 
-    <Button
-        android:id="@+id/BerechnungsverlaufButton2"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Berechnungsverlauf öffnen"
-        android:layout_below="@+id/bStartseite"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:background="@drawable/bordered_button_rieder" />
+        <ImageView
+            android:id="@+id/iVberechnung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/beispielrechnung"
+            android:layout_below="@id/tVErläuterungFormel2"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tVErgebnisBeispiel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Die Annuität beträgt somit 1.728,20€."
+            android:layout_below="@+id/iVberechnung"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/Trennlinie4"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="#373737"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/tVErgebnisBeispiel" />
+
+        <Button
+            android:id="@+id/bStartseite"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Neue Berechnung"
+            android:layout_below="@+id/Trennlinie4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:background="@drawable/bordered_button_rieder" />
+
+        <Button
+            android:id="@+id/BerechnungsverlaufButton2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Berechnungsverlauf öffnen"
+            android:layout_below="@+id/bStartseite"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:background="@drawable/bordered_button_rieder"
+            android:layout_marginBottom="25dp"/>
 
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>
