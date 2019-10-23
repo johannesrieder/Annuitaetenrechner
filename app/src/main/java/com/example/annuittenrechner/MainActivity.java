@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView tVZinssatz;
     TextView tVLaufzeit;
     ImageView iVhelpicon;
+    TextView tVAnnuitaetsverlauf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         eTZinssatz = findViewById(R.id.eTZinssatz);
         eTLaufzeit = findViewById(R.id.eTLaufzeit);
         iVhelpicon = findViewById(R.id.iVhelpicon);
+        tVAnnuitaetsverlauf = findViewById(R.id.tVAnnuitaetsverlauf);
     }
 
     public double leseDarlehenssumme() {
@@ -119,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void saveAnnuitaetOnClick() {
         TextView tVAnnuitaetsverlauf = findViewById(R.id.tVAnnuitaetsverlauf);
-        if(!tVAnnuitaetsverlauf.getText().toString().isEmpty()){
+        if(tVAnnuitaetsverlauf.getText().toString().isEmpty() == false){
             new SpeichernTask()
                     .execute(new Annuitaet(tVAnnuitaetsverlauf.getText().toString()));
         }
