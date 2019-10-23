@@ -65,12 +65,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view == AnnuitätButton) {
             if (!eTDarlehenssumme.getText().toString().isEmpty() && !eTZinssatz.getText().toString().isEmpty() && !eTLaufzeit.getText().toString().isEmpty()) {
-
                 tVBetrag = findViewById(R.id.tVDarlehenssumme);
                 tVZinssatz = findViewById(R.id.tVZinssatz);
                 tVErgebnis = findViewById(R.id.tVErgebnis);
                 tVLaufzeit = findViewById(R.id.tVLaufzeit);
-
                 Intent intent = new Intent(this, Ergebnis.class);
                 String annuität = Double.toString(berechneAnnuität(leseDarlehenssumme(),leseZinssatz(),leseLaufzeit()));
                 intent.putExtra("annuität", annuität);
@@ -80,11 +78,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("zinssatz", zinssatz);
                 String laufzeit = Double.toString(leseLaufzeit());
                 intent.putExtra("laufzeit", laufzeit);
-
                 startActivity(intent);
-
             } else {
-                System.out.println("Die Eingabe ist nicht vollständig!");
                 if (eTDarlehenssumme.getText().toString().isEmpty()) {
                     eTDarlehenssumme.setHintTextColor(Color.RED);
                 }
