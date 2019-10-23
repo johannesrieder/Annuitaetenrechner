@@ -5,9 +5,6 @@
         <shape android:shape="rectangle">
             <!-- background -->
             <solid android:color="@color/colorOrange2"/>
-            <!-- border -->
-            <stroke android:width="2dp" android:color="@android:color/white" />
-
             <!-- corner roundness -->
             <corners android:radius="20dp"/>
         </shape>
