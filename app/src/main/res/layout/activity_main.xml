@@ -8,30 +8,50 @@
     android:background="#001064">
 
 
-    <ImageView
-        android:id="@+id/Sparschwein"
+    <TextView
+        android:id="@+id/tVTitel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/sparschwein" />
-
-    <ImageView
-        android:id="@+id/iVhelpicon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/helpicon"
-        android:layout_toRightOf="@id/Sparschwein"
-        android:layout_marginLeft="20dp"
-        android:clickable="true"
-        android:onClick="onClick"/>
+        android:text="Annuitätenrechner"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@android:color/white"/>
 
     <TextView
         android:id="@+id/Trennlinie1"
         android:layout_width="match_parent"
         android:layout_height="4dp"
         android:background="#e0e0e0"
-        android:layout_marginTop="0dp"
-        android:layout_below="@+id/Sparschwein" />
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/tVTitel" />
+
+    <ImageView
+        android:id="@+id/iVxMann"
+        android:layout_width="268dp"
+        android:layout_height="236dp"
+        android:layout_below="@+id/tVTitel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/pic1" />
+
+    <ImageView
+        android:id="@+id/iVhelpicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/helpicon"
+        android:layout_toRightOf="@id/iVxMann"
+        android:layout_marginLeft="20dp"
+        android:clickable="true"
+        android:onClick="onClick"/>
+
+    <TextView
+        android:id="@+id/Trennlinie2"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="#e0e0e0"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/iVxMann" />
 
     <TextView
         android:id="@+id/Darlehenssumme"
@@ -42,16 +62,16 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/Trennlinie1"/>
+        android:layout_below="@+id/Trennlinie2"/>
 
 
     <EditText
         android:id="@+id/eTDarlehenssumme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Trennlinie1"
+        android:layout_below="@+id/iVxMann"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:hint="In Euro"
         android:textColorHint="#9e9e9e"
         android:textColor="@android:color/white"
@@ -109,7 +129,7 @@
         android:inputType="number"/>
 
     <TextView
-        android:id="@+id/Trennlinie2"
+        android:id="@+id/Trennlinie3"
         android:layout_width="match_parent"
         android:layout_height="4dp"
         android:background="#e0e0e0"
@@ -121,7 +141,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Annuität ermitteln"
-        android:layout_below="@+id/Trennlinie2"
+        android:layout_below="@+id/Trennlinie3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:textColor="@android:color/white"
