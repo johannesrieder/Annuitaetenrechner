@@ -31,35 +31,15 @@
         android:textColor="@android:color/white"/>
 
     <TextView
-        android:id="@+id/tVTitleDarlehenssumme"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="60dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tVErgebnis"
-        android:text="Darlehenssumme"
-        android:textSize="20sp" />
-
-    <TextView
         android:id="@+id/tVDarlehenssumme"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tVErgebnis"
-        android:layout_toRightOf="@+id/tVTitleDarlehenssumme"
         android:text=""
+        android:layout_marginLeft="50dp"
         android:textSize="20sp"
         android:background="@android:color/holo_orange_light"/>
-
-    <TextView
-        android:id="@+id/tVTitleZinssatz"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="60dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tVTitleDarlehenssumme"
-        android:text="Zinssatz"
-        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tVZinssatz"
@@ -67,20 +47,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tVDarlehenssumme"
-        android:layout_toRightOf="@+id/tVTitleZinssatz"
         android:text=""
+        android:layout_marginLeft="50dp"
         android:textSize="20sp"
         android:background="@android:color/holo_orange_light"/>
-
-    <TextView
-        android:id="@+id/tVTitleLaufzeit"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="60dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tVTitleZinssatz"
-        android:text="Laufzeit"
-        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tVLaufzeit"
@@ -88,8 +58,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tVZinssatz"
-        android:layout_toRightOf="@+id/tVTitleLaufzeit"
         android:text=""
+        android:layout_marginLeft="50dp"
         android:textSize="20sp"
         android:background="@android:color/holo_orange_light"/>
 
@@ -103,8 +73,7 @@
         android:layout_below="@+id/tVZinssatz"
         android:text="Neue Berechnung"
         android:textSize="20sp"
-        android:background="@drawable/bordered_button_rieder"
-        />
+        android:background="@drawable/bordered_button_rieder" />
 
     <Button
         android:id="@+id/bBerechnungsverlauf"
