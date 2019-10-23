@@ -9,25 +9,15 @@
 
     <ImageView
         android:id="@+id/imageHeader2"
+        android:layout_marginTop="50dp"
         android:layout_width="203dp"
         android:layout_height="265dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/pic2" />
 
     <TextView
-        android:id="@+id/tvHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="40dp"
-        android:text="Ergebnis"
-        android:layout_below="@+id/imageHeader2"
-        android:textSize="40sp"/>
-
-    <TextView
         android:id="@+id/tVErgebnis"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="-40dp"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
         android:layout_width="match_parent"
@@ -37,7 +27,8 @@
         android:textAlignment="center"
         android:gravity="center"
         android:textSize="40sp"
-        android:background="@android:color/holo_orange_dark"/>
+        android:background="@drawable/bordered_button_ergebnis"
+        android:textColor="@android:color/white"/>
 
     <TextView
         android:id="@+id/tVTitleDarlehenssumme"
@@ -121,7 +112,7 @@
         android:layout_below="@+id/tVZinssatz"
         android:text="Neue Berechnung"
         android:textSize="20sp"
-        android:background="@drawable/transparent_bg_bordered_button"
+        android:background="@drawable/bordered_button_rieder"
         />
 
     <Button
@@ -134,6 +125,6 @@
         android:layout_below="@+id/bNeueBerechnung"
         android:text="Berechnungsverlauf"
         android:textSize="20sp"
-        android:background="@drawable/transparent_bg_bordered_button" />
+        android:background="@drawable/bordered_button_rieder" />
 
 </RelativeLayout>
