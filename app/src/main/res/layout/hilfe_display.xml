@@ -39,7 +39,8 @@
         android:id="@+id/tVErläuterung"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jahreszahlung an Zinsen und Tilgungsraten bei der Amortisation 1 einer Schuld"
+        android:text="Jahreszahlung an Zinsen und Tilgungsraten bei der Amorti-
+        sation einer Schuld"
         android:layout_below="@+id/tVErläuterungTitel"/>
 
     <TextView

@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tVAnnuitaetsverlauf = findViewById(R.id.tVAnnuitaetsverlauf);
 
         dao = AnnuitaetRoomDatabase.getDatabase(this).annuitaetDao();
 
@@ -49,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         eTZinssatz = findViewById(R.id.eTZinssatz);
         eTLaufzeit = findViewById(R.id.eTLaufzeit);
         iVhelpicon = findViewById(R.id.iVhelpicon);
-        tVAnnuitaetsverlauf = findViewById(R.id.tVAnnuitaetsverlauf);
     }
 
     public double leseDarlehenssumme() {
@@ -119,9 +119,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void saveAnnuitaetOnClick() {
-        TextView tVAnnuitaetsverlauf = findViewById(R.id.tVAnnuitaetsverlauf);
-        if(tVAnnuitaetsverlauf.getText().toString().isEmpty() == false){
+    public void saveAnnuitaetOnClick() {
+        if(!tVAnnuitaetsverlauf.getText().toString().isEmpty()){
             new SpeichernTask()
                     .execute(new Annuitaet(tVAnnuitaetsverlauf.getText().toString()));
         }
