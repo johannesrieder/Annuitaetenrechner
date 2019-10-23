@@ -118,10 +118,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void saveAnnuitaetOnClick() {
-        EditText eTAnnuitaet = findViewById(R.id.eTAnnuitaet);
-        if(!eTAnnuitaet.getText().toString().isEmpty()){
+        TextView tVAnnuitaetsverlauf = findViewById(R.id.tVAnnuitaetsverlauf);
+        if(!tVAnnuitaetsverlauf.getText().toString().isEmpty()){
             new SpeichernTask()
-                    .execute(new Annuitaet(eTAnnuitaet.getText().toString()));
+                    .execute(new Annuitaet(tVAnnuitaetsverlauf.getText().toString()));
         }
     }
 
