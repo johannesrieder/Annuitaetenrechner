@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,6 +42,15 @@ public class AnnuitaetListAdapter extends RecyclerView.Adapter<RecyclerView.View
     public void onBindViewHolder
             (@NonNull RecyclerView.ViewHolder holder, int position){
         TextView annuitaetView = holder.itemView.findViewById(R.id.listitem);
+        TextView darlehenView = holder.itemView.findViewById(R.id.listitem2);
+        TextView zinsView = holder.itemView.findViewById(R.id.listitem3);
+        TextView laufzeitView = holder.itemView.findViewById(R.id.listitem4);
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        darlehenView.setText("darlehen");
+        zinsView.setText("zinssatz");
+        laufzeitView.setText("laufzeit");
         annuitaetView.setText(annuitaets.get(position).getAnnuitaet());
         annuitaetView.setOnClickListener((view) ->{
          new DeleteAnnuitaetTask(dao,this).execute(annuitaets.get(position));

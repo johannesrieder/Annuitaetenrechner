@@ -11,6 +11,7 @@ public class Annuitaet {
     private int id;
     private final String annuitaet;
 
+
     public Annuitaet(String annuitaet) {
         this.annuitaet = annuitaet;
     }

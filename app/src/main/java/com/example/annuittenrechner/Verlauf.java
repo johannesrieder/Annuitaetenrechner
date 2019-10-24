@@ -18,6 +18,7 @@ public class Verlauf extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView recyclerView;
     private AnnuitaetListAdapter adapter;
     Button HStartseiteButton;
+    Button bLöschen;
     ImageView iVhelpicon;
 
     @Override
@@ -33,32 +34,36 @@ public class Verlauf extends AppCompatActivity implements View.OnClickListener {
         recyclerView.setAdapter(adapter);
         HStartseiteButton = findViewById(R.id.HStartseiteButton);
         iVhelpicon = findViewById(R.id.iVhelpicon);
+        bLöschen = findViewById(R.id.bLöschen);
         HStartseiteButton.setOnClickListener(this);
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
-        new LadeAnnuitaetsTask(dao,adapter).execute();
+        new LadeAnnuitaetsTask(dao, adapter).execute();
     }
 
     @Override
     public void onClick(View view) {
 
-        if (view == HStartseiteButton){
-            Intent intent = new Intent(this,MainActivity.class);
+        if (view == HStartseiteButton) {
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
 
-        if(view == iVhelpicon){
-            Intent intent = new Intent(this,Hilfe.class);
+        if (view == iVhelpicon) {
+            Intent intent = new Intent(this, Hilfe.class);
             startActivity(intent);
         }
+        if (view == bLöschen) {
+            /////////////////////////////////////////////////////////////////////////
 
-
+        }
     }
 
-    static class LadeAnnuitaetsTask extends AsyncTask<Void, Void, List<Annuitaet>>{
+
+    static class LadeAnnuitaetsTask extends AsyncTask<Void, Void, List<Annuitaet>> {
 
         private final AnnuitaetDao dao;
         private final AnnuitaetListAdapter adapter;
@@ -80,3 +85,4 @@ public class Verlauf extends AppCompatActivity implements View.OnClickListener {
         }
     }
 }
+

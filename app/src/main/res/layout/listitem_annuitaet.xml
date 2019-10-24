@@ -1,18 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <TextView
         android:id="@+id/listitem"
         android:padding="4dp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:textSize="40sp"
+        android:textSize="20sp"
         android:textColor="@android:color/white"
-        android:text="TEST"
         android:background="@color/colorAccent"/>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/listitem2"
+        android:padding="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/listitem"
+        android:layout_marginStart="10dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:background="@color/colorAccent"/>
+
+    <TextView
+        android:id="@+id/listitem3"
+        android:padding="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/listitem2"
+        android:layout_marginStart="10dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:background="@color/colorAccent"/>
+
+    <TextView
+        android:id="@+id/listitem4"
+        android:padding="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/listitem3"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:background="@color/colorAccent"/>
+
+    <Button
+        android:id="@+id/bLöschen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/listitem4"
+        android:layout_marginStart="10dp"
+        android:text="Löschen"
+        android:textSize="20sp" />
+
+    </RelativeLayout>
+
+</HorizontalScrollView>
