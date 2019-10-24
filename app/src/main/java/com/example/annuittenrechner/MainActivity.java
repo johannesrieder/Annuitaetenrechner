@@ -48,10 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ZSAnnuitätButton.setOnClickListener(this);
 
         ZVerlaufButton = findViewById(R.id.BerechnungsverlaufButton);
-        ZVerlaufButton.setOnClickListener((view) -> {
-            Intent intent = new Intent(this, Verlauf.class);
-            startActivity(intent);
-        });
+        ZVerlaufButton.setOnClickListener(this);
 
         iVhelpicon = findViewById(R.id.iVhelpicon);
     }

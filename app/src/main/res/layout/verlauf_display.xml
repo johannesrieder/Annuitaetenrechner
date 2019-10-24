@@ -5,14 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".Verlauf"
     android:orientation="vertical">
-
     <TextView
         android:id="@+id/tVTitel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Berechnungsverlauf"
         android:textSize="20sp"
-        android:textColor="@android:color/white"
+        android:textColor="#212121"
         android:textStyle="bold"/>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -14,7 +14,7 @@ public interface AnnuitaetDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Annuitaet annuitaet);
 
-    @Query("SELECT * from annuitaet")
+    @Query("SELECT * from Annuitaet")
     List<Annuitaet> getAll();
 
     @Delete
