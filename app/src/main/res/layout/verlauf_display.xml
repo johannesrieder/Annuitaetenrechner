@@ -10,9 +10,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Berechnungsverlauf"
-        android:textSize="20sp"
-        android:textColor="#212121"
-        android:textStyle="bold"/>
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="#212121"/>
+
+    <TextView
+        android:id="@+id/Trennlinie1"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="#373737"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/tVTitel" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/annuitaet_recycler"

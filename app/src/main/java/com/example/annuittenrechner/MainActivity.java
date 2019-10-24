@@ -102,10 +102,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, Hilfe.class);
             startActivity(intent);
         }
+        else if(view == ZVerlaufButton){
+            Intent intent = new Intent(this, Verlauf.class);
+            startActivity(intent);
+        }
     }
 
     public void saveAnnuitaetOnClick() {
-        if(annuität.equals("")){
+        if(!annuität.equals("")){
             new SpeichernTask()
                     .execute(new Annuitaet(annuität));
         }
@@ -119,6 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         @Override
         protected void onPostExecute(Void aVoid){
+
             super.onPostExecute(aVoid);
         }
     }
