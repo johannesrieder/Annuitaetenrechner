@@ -9,29 +9,28 @@ import android.widget.Button;
 
 public class Hilfe extends AppCompatActivity implements View.OnClickListener {
 
-
-    Button bStartseite;
-    Button BerechnungsverlaufButton2;
+    Button HStartseiteButton;
+    Button SVerlaufButton2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hilfe_display);
-        bStartseite = findViewById(R.id.bStartseite);
-        BerechnungsverlaufButton2 = findViewById(R.id.BerechnungsverlaufButton2);
+        HStartseiteButton = findViewById(R.id.HStartseiteButton);
+        SVerlaufButton2 = findViewById(R.id.SVerlaufButton2);
 
-        bStartseite.setOnClickListener(this);
-        BerechnungsverlaufButton2.setOnClickListener(this);
+        HStartseiteButton.setOnClickListener(this);
+        SVerlaufButton2.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
 
-        if (view == bStartseite){
+        if (view == HStartseiteButton){
             Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);
         }
-        if (view == BerechnungsverlaufButton2){
+        if (view == SVerlaufButton2){
             Intent intent = new Intent(this,Verlauf.class);
             startActivity(intent);
         }

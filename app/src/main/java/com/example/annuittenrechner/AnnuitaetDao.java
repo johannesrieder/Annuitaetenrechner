@@ -12,12 +12,12 @@ import java.util.List;
 public interface AnnuitaetDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void insert(Annuitaet annuitaet);
+    void insert(Annuitaet annuitaet);
 
     @Query("SELECT * from annuitaet")
-    public List<Annuitaet> getAll();
+    List<Annuitaet> getAll();
 
     @Delete
-    public void delete(Annuitaet annuitaet);
+    void delete(Annuitaet annuitaet);
 
 }

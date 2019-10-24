@@ -16,57 +16,51 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private AnnuitaetDao dao;
+    private String annuität = "";
 
-    Button AnnuitätButton;
-    Button BerechnungsverlaufButton;
     EditText eTDarlehenssumme;
     EditText eTZinssatz;
     EditText eTLaufzeit;
+
     TextView tVErgebnis;
     TextView tVBetrag;
     TextView tVZinssatz;
     TextView tVLaufzeit;
+
+    protected Button ZSAnnuitätButton;
+    protected Button ZVerlaufButton;
+
     ImageView iVhelpicon;
-    TextView tVAnnuitaetsverlauf;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tVAnnuitaetsverlauf = findViewById(R.id.tVAnnuitaetsverlauf);
 
         dao = AnnuitaetRoomDatabase.getDatabase(this).annuitaetDao();
-
-        AnnuitätButton = findViewById(R.id.AnnuitätButton);
-        AnnuitätButton.setOnClickListener(this);
-        AnnuitätButton.setOnClickListener(view -> {saveAnnuitaetOnClick();
-        });
-
-
-        BerechnungsverlaufButton = findViewById(R.id.BerechnungsverlaufButton);
-        BerechnungsverlaufButton.setOnClickListener(this);
 
         eTDarlehenssumme = findViewById(R.id.eTDarlehenssumme);
         eTZinssatz = findViewById(R.id.eTZinssatz);
         eTLaufzeit = findViewById(R.id.eTLaufzeit);
+
+        ZSAnnuitätButton = findViewById(R.id.AnnuitätButton);
+        ZSAnnuitätButton.setOnClickListener(this);
+
+        ZVerlaufButton = findViewById(R.id.BerechnungsverlaufButton);
+        ZVerlaufButton.setOnClickListener((view) -> {
+            Intent intent = new Intent(this, Verlauf.class);
+            startActivity(intent);
+        });
+
         iVhelpicon = findViewById(R.id.iVhelpicon);
     }
 
-    public double leseDarlehenssumme() {
-        double ds = Double.parseDouble(eTDarlehenssumme.getText().toString());
-        return ds;
-    }
+    public double leseDarlehenssumme() { return Double.parseDouble(eTDarlehenssumme.getText().toString()); }
 
-    public double leseZinssatz() {
-        double zs = Double.parseDouble(eTZinssatz.getText().toString());
-        zs = zs / 100;
-        return zs;
-    }
+    public double leseZinssatz() { return Double.parseDouble(eTZinssatz.getText().toString())/100; }
 
-    public int leseLaufzeit() {
-        int lz = Integer.parseInt(eTLaufzeit.getText().toString());
-        return lz;
-    }
+    public int leseLaufzeit() { return Integer.parseInt(eTLaufzeit.getText().toString()); }
 
     public double berechneAnnuität(double darlehenssumme, double zinssatz, int laufzeit) {
         double annuität = darlehenssumme * (Math.pow(1 + zinssatz, laufzeit) * (zinssatz / (Math.pow(1 + zinssatz, laufzeit) - 1)));
@@ -75,14 +69,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View view) {
-        if (view == AnnuitätButton) {
+        if (view == ZSAnnuitätButton) {
             if (!eTDarlehenssumme.getText().toString().isEmpty() && !eTZinssatz.getText().toString().isEmpty() && !eTLaufzeit.getText().toString().isEmpty()) {
                 tVBetrag = findViewById(R.id.tVDarlehenssumme);
                 tVZinssatz = findViewById(R.id.tVZinssatz);
                 tVErgebnis = findViewById(R.id.tVErgebnis);
                 tVLaufzeit = findViewById(R.id.tVLaufzeit);
                 Intent intent = new Intent(this, Ergebnis.class);
-                String annuität = Double.toString(berechneAnnuität(leseDarlehenssumme(),leseZinssatz(),leseLaufzeit()));
+                annuität = Double.toString(berechneAnnuität(leseDarlehenssumme(),leseZinssatz(),leseLaufzeit()));
                 intent.putExtra("annuität", annuität);
                 String darlehenssumme = Double.toString(leseDarlehenssumme());
                 intent.putExtra("darlehenssumme", darlehenssumme);
@@ -106,34 +100,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast laufzeitToast =
                         Toast.makeText(this, "Eingaben unvollständig!", Toast.LENGTH_LONG);
                 laufzeitToast.show();
-                return;
             }
-        } if(view == BerechnungsverlaufButton){
-            Intent intent = new Intent(this, Verlauf.class);
-            startActivity(intent);
 
-        }
-        if(view == iVhelpicon){
+        } else if(view == iVhelpicon){
             Intent intent = new Intent(this, Hilfe.class);
             startActivity(intent);
         }
     }
 
     public void saveAnnuitaetOnClick() {
-        if(!tVAnnuitaetsverlauf.getText().toString().isEmpty()){
+        if(annuität.equals("")){
             new SpeichernTask()
-                    .execute(new Annuitaet(tVAnnuitaetsverlauf.getText().toString()));
+                    .execute(new Annuitaet(annuität));
         }
     }
 
     class SpeichernTask extends AsyncTask<Annuitaet, Void, Void>{
-
         @Override
         protected Void doInBackground(Annuitaet... annuitaets) {
             dao.insert(annuitaets[0]);
             return null;
         }
-
         @Override
         protected void onPostExecute(Void aVoid){
             super.onPostExecute(aVoid);

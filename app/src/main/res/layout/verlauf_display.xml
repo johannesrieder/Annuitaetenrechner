@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Verlauf"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tVTitel"
@@ -15,14 +15,9 @@
         android:textColor="@android:color/white"
         android:textStyle="bold"/>
 
-    <androidx.recycleriew.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/annuitaet_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-    <TextView
-        android:id="@+id/tVAnnuitaetsverlauf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
 </LinearLayout>

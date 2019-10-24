@@ -133,7 +133,7 @@
             android:layout_below="@+id/tVErgebnisBeispiel" />
 
         <Button
-            android:id="@+id/bStartseite"
+            android:id="@+id/HStartseiteButton"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="Neue Berechnung"
@@ -146,11 +146,11 @@
             android:background="@drawable/bordered_button_rieder" />
 
         <Button
-            android:id="@+id/BerechnungsverlaufButton2"
+            android:id="@+id/SVerlaufButton2"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="Berechnungsverlauf öffnen"
-            android:layout_below="@+id/bStartseite"
+            android:layout_below="@+id/HStartseiteButton"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             android:textColor="@android:color/white"
