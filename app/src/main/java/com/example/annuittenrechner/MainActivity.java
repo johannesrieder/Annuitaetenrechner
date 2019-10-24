@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("laufzeit", laufzeit);
                 startActivity(intent);
                 saveAnnuitaetOnClick();
-
             } else {
                 if (eTDarlehenssumme.getText().toString().isEmpty()) {
                     eTDarlehenssumme.setHintTextColor(Color.RED);
