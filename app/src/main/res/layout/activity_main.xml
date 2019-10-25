@@ -61,7 +61,7 @@
         android:id="@+id/Darlehenssumme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:text="Summe:"
         android:textColor="#212121"
@@ -75,8 +75,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Trennlinie2"
-        android:layout_centerHorizontal="true"
         android:hint="In Euro"
+        android:layout_marginStart="140dp"
         android:textColorHint="#9e9e9e"
         android:inputType="number"/>
 
@@ -84,7 +84,7 @@
         android:id="@+id/Zinssatz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="20dp"
         android:text="Zinssatz:"
         android:textColor="#212121"
         android:layout_below="@+id/Darlehenssumme"
@@ -99,8 +99,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/Darlehenssumme"
         android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true"
         android:hint="In Prozent"
+        android:layout_marginStart="140dp"
         android:textColorHint="#9e9e9e"
         android:inputType="number"/>
 
@@ -108,7 +108,7 @@
         android:id="@+id/Laufzeit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="20dp"
         android:text="Laufzeit:"
         android:textColor="#212121"
         android:layout_below="@+id/Zinssatz"
@@ -122,9 +122,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Zinssatz"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:hint="In Jahren"
+        android:layout_marginStart="140dp"
         android:textColorHint="#9e9e9e"
         android:inputType="number"/>
 
@@ -133,7 +133,7 @@
          android:id="@+id/tVKommentar"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_marginStart="40dp"
+         android:layout_marginStart="20dp"
          android:text="Kommentar:"
          android:textColor="#212121"
          android:layout_below="@+id/Laufzeit"
@@ -145,9 +145,9 @@
           android:id="@+id/eTKommentar"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_below="@+id/eTLaufzeit"
-          android:layout_centerHorizontal="true"
+          android:layout_below="@+id/Laufzeit"
           android:layout_marginTop="40dp"
+          android:layout_marginStart="140dp"
           android:hint="Ihre Bemerkung"
           android:textColorHint="#9e9e9e"
           android:inputType="text" />
@@ -156,7 +156,7 @@
         android:id="@+id/tVDatum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="20dp"
         android:text="Datum:"
         android:textColor="#212121"
         android:layout_below="@+id/tVKommentar"
@@ -172,7 +172,6 @@
             android:layout_below="@+id/eTKommentar"
             android:layout_toRightOf="@+id/tVDatum"
             android:datePickerMode="calendar"/>
-
 
         <TextView
         android:id="@+id/Trennlinie3"
