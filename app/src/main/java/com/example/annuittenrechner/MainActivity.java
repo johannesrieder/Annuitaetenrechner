@@ -70,17 +70,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("annuität", annuität);
                 String darlehenssumme = Double.toString(leseDarlehenssumme());
                 intent.putExtra("darlehenssumme", darlehenssumme);
-                String zinssatz = Double.toString(leseZinssatz());
+                String zinssatz = Double.toString(leseZinssatz()*100);
                 intent.putExtra("zinssatz", zinssatz);
                 String laufzeit = Double.toString(leseLaufzeit());
                 intent.putExtra("laufzeit", laufzeit);
 
                 startActivity(intent);
-                saveAnnuitaetOnClick();
 
                 Intent intent2 = new Intent(this, Verlauf.class);
                 intent2.putExtra("Datum",datum);
                 intent2.putExtra("Kommentar",eTKommentar.getText());
+
+                saveAnnuitaetOnClick();
 
             } else {
                 if (eTDarlehenssumme.getText().toString().isEmpty()) {

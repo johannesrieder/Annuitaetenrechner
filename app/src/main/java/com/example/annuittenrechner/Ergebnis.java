@@ -37,13 +37,13 @@ public class Ergebnis extends AppCompatActivity implements View.OnClickListener 
 
         Intent intent = getIntent();
         String annuität = intent.getStringExtra("annuität");
-        Ergebnis.setText(annuität);
+        Ergebnis.setText(annuität+"€");
         String darlehenssumme = intent.getStringExtra("darlehenssumme");
-        Darlehenssumme.setText("Darlehenssumme: "+darlehenssumme);
+        Darlehenssumme.setText("Darlehenssumme: "+darlehenssumme+"€");
         String zinssatz = intent.getStringExtra("zinssatz");
-        Zinssatz.setText("Zinssatz: "+zinssatz);
+        Zinssatz.setText("Zinssatz: "+zinssatz+"%");
         String laufzeit = intent.getStringExtra("laufzeit");
-        Laufzeit.setText("Laufzeit: "+laufzeit);
+        Laufzeit.setText("Laufzeit: "+laufzeit+" Jahre");
     }
 
     @Override
