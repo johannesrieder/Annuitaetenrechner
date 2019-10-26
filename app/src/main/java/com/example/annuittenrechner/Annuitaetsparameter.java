@@ -12,12 +12,14 @@ public class Annuitaetsparameter {
     private final String darlehenssumme;
     private final String zinssatz;
     private final String laufzeit;
+    private final String kommentar;
 
-    public Annuitaetsparameter(String annuität, String darlehenssumme, String zinssatz, String laufzeit) {
+    public Annuitaetsparameter(String annuität, String darlehenssumme, String zinssatz, String laufzeit, String kommentar) {
         this.annuität = annuität;
         this.darlehenssumme = darlehenssumme;
         this.zinssatz = zinssatz;
         this.laufzeit = laufzeit;
+        this.kommentar = kommentar;
     }
 
     public int getId() {
@@ -43,5 +45,10 @@ public class Annuitaetsparameter {
     public String getLaufzeit() {
         return laufzeit;
     }
+
+    public String getKommentar() {
+        return kommentar;
+    }
+
 }
 

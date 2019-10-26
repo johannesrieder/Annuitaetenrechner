@@ -38,6 +38,7 @@ public class AnnuitaetsparameterListAdapter extends RecyclerView.Adapter<Recycle
         TextView darlehenView = holder.itemView.findViewById(R.id.listitem2);
         TextView zinsView = holder.itemView.findViewById(R.id.listitem3);
         TextView laufzeitView = holder.itemView.findViewById(R.id.listitem4);
+        TextView kommentarView = holder.itemView.findViewById(R.id.listitem5);
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -48,6 +49,7 @@ public class AnnuitaetsparameterListAdapter extends RecyclerView.Adapter<Recycle
         darlehenView.setText(aps.get(position).getDarlehenssumme());
         zinsView.setText(aps.get(position).getZinssatz());
         laufzeitView.setText(aps.get(position).getLaufzeit());
+        kommentarView.setText(aps.get(position).getKommentar());
     }
 
     @Override

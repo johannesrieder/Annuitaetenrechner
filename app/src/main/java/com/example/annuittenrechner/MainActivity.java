@@ -17,11 +17,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private AnnuitaetsparameterDao dao;
-    private Annuitaetsparameter ap;
     private String annuität;
     private String darlehenssumme;
     private String zinssatz;
     private String laufzeit;
+    private String kommentar;
 
     EditText eTDarlehenssumme;
     EditText eTZinssatz;
@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             darlehenssumme = eTDarlehenssumme.getText().toString(); //editText erst lesen, dann prüfen und dann berechnen -> string parameter wird zuvor erzeugt
             zinssatz = eTZinssatz.getText().toString();
             laufzeit = eTLaufzeit.getText().toString();
+            kommentar = eTKommentar.getText().toString();
             if (!darlehenssumme.equals("") && !zinssatz.equals("") && !laufzeit.equals("")) {
                 annuität = Double.toString(berechneAnnuität(leseDarlehenssumme(),leseZinssatz(),leseLaufzeit()));
                 Intent intent = new Intent(this, Ergebnis.class);
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void saveAnnuitaetsparameterOnClick() {
         if(!annuität.equals("")){
             new SpeichernTask()
-                    .execute(new Annuitaetsparameter(annuität, darlehenssumme, zinssatz, laufzeit));
+                    .execute(new Annuitaetsparameter(annuität, darlehenssumme, zinssatz, laufzeit,kommentar));
         }
     }
 
