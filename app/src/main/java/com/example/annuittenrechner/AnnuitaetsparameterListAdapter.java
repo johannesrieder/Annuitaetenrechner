@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,11 +40,11 @@ public class AnnuitaetsparameterListAdapter extends RecyclerView.Adapter<Recycle
         TextView darlehenView = holder.itemView.findViewById(R.id.listitem2);
         TextView zinsView = holder.itemView.findViewById(R.id.listitem3);
         TextView laufzeitView = holder.itemView.findViewById(R.id.listitem4);
-
+        ImageView bLöschen = holder.itemView.findViewById(R.id.bLöschen);
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         annuitaetView.setText(aps.get(position).getAnnuität());
-        annuitaetView.setOnClickListener((view) ->{
+        bLöschen.setOnClickListener((view) ->{
             new DeleteAnnuitaetsparameterTask(dao,this).execute(aps.get(position));
         });
         darlehenView.setText(aps.get(position).getDarlehenssumme());

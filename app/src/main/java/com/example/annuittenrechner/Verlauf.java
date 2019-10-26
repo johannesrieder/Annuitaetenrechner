@@ -35,7 +35,7 @@ public class Verlauf extends AppCompatActivity implements View.OnClickListener {
         recyclerView.setAdapter(adapter);
         HStartseiteButton = findViewById(R.id.HStartseiteButton);
         iVhelpicon = findViewById(R.id.iVhelpicon);
-        iVLöschen = findViewById(R.id.iVLöschen);
+        iVLöschen = findViewById(R.id.bLöschen);
         HStartseiteButton.setOnClickListener(this);
     }
 
