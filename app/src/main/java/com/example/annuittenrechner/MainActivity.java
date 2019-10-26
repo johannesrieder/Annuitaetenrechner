@@ -1,23 +1,27 @@
 package com.example.annuittenrechner;
 
-import java.util.Calendar;
-import java.util.Date;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.view.View;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
+import java.util.Date;
+import java.util.Calendar;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private AnnuitaetDao dao;
-    private String annuität = "";
+    private AnnuitaetsparameterDao dao;
+    private Annuitaetsparameter ap;
+    private String annuität;
+    private String darlehenssumme;
+    private String zinssatz;
+    private String laufzeit;
 
     EditText eTDarlehenssumme;
     EditText eTZinssatz;
@@ -29,12 +33,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     ImageView iVhelpicon;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dao = AnnuitaetRoomDatabase.getDatabase(this).annuitaetDao();
+
+        dao = AnnuitaetsparameterRoomDatabase.getDatabase(this).annuitaetsparameterDao();
 
         eTDarlehenssumme = findViewById(R.id.eTDarlehenssumme);
         eTZinssatz = findViewById(R.id.eTZinssatz);
@@ -43,8 +47,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ZSAnnuitätButton = findViewById(R.id.AnnuitätButton);
         ZSAnnuitätButton.setOnClickListener(this);
+
         ZVerlaufButton = findViewById(R.id.BerechnungsverlaufButton);
         ZVerlaufButton.setOnClickListener(this);
+
         iVhelpicon = findViewById(R.id.iVhelpicon);
     }
 
@@ -55,34 +61,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public int leseLaufzeit() { return Integer.parseInt(eTLaufzeit.getText().toString()); }
 
     public double berechneAnnuität(double darlehenssumme, double zinssatz, int laufzeit) {
-        double annuität = darlehenssumme * (Math.pow(1 + zinssatz, laufzeit) * (zinssatz / (Math.pow(1 + zinssatz, laufzeit) - 1)));
-        annuität = Math.round(annuität * 100.0) / 100.0;
-        return annuität;
-    }
+    double annuität = darlehenssumme * (Math.pow(1 + zinssatz, laufzeit) * (zinssatz / (Math.pow(1 + zinssatz, laufzeit) - 1)));
+    annuität = Math.round(annuität * 100.0) / 100.0;
+    return annuität;
+}
 
     public void onClick(View view) {
         if (view == ZSAnnuitätButton) {
-            if (!eTDarlehenssumme.getText().toString().isEmpty() && !eTZinssatz.getText().toString().isEmpty() && !eTLaufzeit.getText().toString().isEmpty()) {
-                Date datum = Calendar.getInstance().getTime();
+            darlehenssumme = eTDarlehenssumme.getText().toString(); //editText erst lesen, dann prüfen und dann berechnen -> string parameter wird zuvor erzeugt
+            zinssatz = eTZinssatz.getText().toString();
+            laufzeit = eTLaufzeit.getText().toString();
+            if (!darlehenssumme.equals("") && !zinssatz.equals("") && !laufzeit.equals("")) {
                 annuität = Double.toString(berechneAnnuität(leseDarlehenssumme(),leseZinssatz(),leseLaufzeit()));
-
                 Intent intent = new Intent(this, Ergebnis.class);
                 intent.putExtra("annuität", annuität);
-                String darlehenssumme = Double.toString(leseDarlehenssumme());
                 intent.putExtra("darlehenssumme", darlehenssumme);
-                String zinssatz = Double.toString(leseZinssatz()*100);
                 intent.putExtra("zinssatz", zinssatz);
-                String laufzeit = Double.toString(leseLaufzeit());
                 intent.putExtra("laufzeit", laufzeit);
-
+                zinssatz = Double.toString(leseZinssatz()*100);
                 startActivity(intent);
-
                 Intent intent2 = new Intent(this, Verlauf.class);
+                Date datum = Calendar.getInstance().getTime();
                 intent2.putExtra("Datum",datum);
                 intent2.putExtra("Kommentar",eTKommentar.getText());
-
-                saveAnnuitaetOnClick();
-
+                saveAnnuitaetsparameterOnClick();
             } else {
                 if (eTDarlehenssumme.getText().toString().isEmpty()) {
                     eTDarlehenssumme.setHintTextColor(Color.RED);
@@ -108,22 +110,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void saveAnnuitaetOnClick() {
+    public void saveAnnuitaetsparameterOnClick() {
         if(!annuität.equals("")){
             new SpeichernTask()
-                    .execute(new Annuitaet(annuität));
+                    .execute(new Annuitaetsparameter(annuität, darlehenssumme, zinssatz, laufzeit));
         }
     }
 
-    class SpeichernTask extends AsyncTask<Annuitaet, Void, Void>{
+    class SpeichernTask extends AsyncTask<Annuitaetsparameter, Void, Void> {
         @Override
-        protected Void doInBackground(Annuitaet... annuitaets) {
-            dao.insert(annuitaets[0]);
+        protected Void doInBackground(Annuitaetsparameter... aps) {
+            dao.insert(aps[0]);
             return null;
         }
         @Override
         protected void onPostExecute(Void aVoid){
-
             super.onPostExecute(aVoid);
         }
     }

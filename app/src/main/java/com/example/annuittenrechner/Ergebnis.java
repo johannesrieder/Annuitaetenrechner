@@ -1,14 +1,14 @@
 package com.example.annuittenrechner;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Ergebnis extends AppCompatActivity implements View.OnClickListener {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Ergebnis  extends AppCompatActivity implements View.OnClickListener {
 
     TextView Ergebnis;
     TextView Darlehenssumme;

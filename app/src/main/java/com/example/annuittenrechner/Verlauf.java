@@ -1,9 +1,5 @@
 package com.example.annuittenrechner;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,12 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
+
 public class Verlauf extends AppCompatActivity implements View.OnClickListener {
 
-    private AnnuitaetDao dao;
+    private AnnuitaetsparameterDao dao;
     private RecyclerView recyclerView;
-    private AnnuitaetListAdapter adapter;
+    private AnnuitaetsparameterListAdapter adapter;
     Button HStartseiteButton;
     ImageView iVLöschen;
     ImageView iVhelpicon;
@@ -26,11 +27,11 @@ public class Verlauf extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.verlauf_display);
 
-        dao = AnnuitaetRoomDatabase.getDatabase(this).annuitaetDao();
+        dao = AnnuitaetsparameterRoomDatabase.getDatabase(this).annuitaetsparameterDao();
 
         recyclerView = findViewById(R.id.annuitaet_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new AnnuitaetListAdapter(dao);
+        adapter = new AnnuitaetsparameterListAdapter(dao);
         recyclerView.setAdapter(adapter);
         HStartseiteButton = findViewById(R.id.HStartseiteButton);
         iVhelpicon = findViewById(R.id.iVhelpicon);
@@ -41,7 +42,7 @@ public class Verlauf extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onResume() {
         super.onResume();
-        new LadeAnnuitaetsTask(dao, adapter).execute();
+        new LadeAnnuitaetsparameterTask(dao, adapter).execute();
     }
 
     @Override
@@ -63,25 +64,25 @@ public class Verlauf extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-    static class LadeAnnuitaetsTask extends AsyncTask<Void, Void, List<Annuitaet>> {
+    static class LadeAnnuitaetsparameterTask extends AsyncTask<Void, Void, List<Annuitaetsparameter>> {
 
-        private final AnnuitaetDao dao;
-        private final AnnuitaetListAdapter adapter;
+        private final AnnuitaetsparameterDao dao;
+        private final AnnuitaetsparameterListAdapter adapter;
 
-        public LadeAnnuitaetsTask(AnnuitaetDao dao, AnnuitaetListAdapter adapter) {
+        public LadeAnnuitaetsparameterTask(AnnuitaetsparameterDao dao, AnnuitaetsparameterListAdapter adapter) {
             this.dao = dao;
             this.adapter = adapter;
         }
 
         @Override
-        protected List<Annuitaet> doInBackground(Void... voids) {
+        protected List<Annuitaetsparameter> doInBackground(Void... voids) {
             return dao.getAll();
         }
 
         @Override
-        protected void onPostExecute(List<Annuitaet> annuitaets) {
-            super.onPostExecute(annuitaets);
-            adapter.setAnnuitaets(annuitaets);
+        protected void onPostExecute(List<Annuitaetsparameter> aps) {
+            super.onPostExecute(aps);
+            adapter.setAps(aps);
         }
     }
 }
