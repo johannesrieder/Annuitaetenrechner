@@ -47,8 +47,8 @@ public class AnnuitaetListAdapter extends RecyclerView.Adapter<RecyclerView.View
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        darlehenView.setText("darlehen");
         zinsView.setText("zinssatz");
+        darlehenView.setText("darlehenssumme");
         laufzeitView.setText("laufzeit");
         annuitaetView.setText(annuitaets.get(position).getAnnuitaet());
         annuitaetView.setOnClickListener((view) ->{
