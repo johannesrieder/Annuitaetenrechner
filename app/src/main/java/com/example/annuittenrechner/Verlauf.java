@@ -18,7 +18,7 @@ public class Verlauf extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView recyclerView;
     private AnnuitaetListAdapter adapter;
     Button HStartseiteButton;
-    Button bLöschen;
+    ImageView iVLöschen;
     ImageView iVhelpicon;
 
     @Override
@@ -34,7 +34,7 @@ public class Verlauf extends AppCompatActivity implements View.OnClickListener {
         recyclerView.setAdapter(adapter);
         HStartseiteButton = findViewById(R.id.HStartseiteButton);
         iVhelpicon = findViewById(R.id.iVhelpicon);
-        bLöschen = findViewById(R.id.bLöschen);
+        iVLöschen = findViewById(R.id.iVLöschen);
         HStartseiteButton.setOnClickListener(this);
     }
 
@@ -56,7 +56,7 @@ public class Verlauf extends AppCompatActivity implements View.OnClickListener {
             Intent intent = new Intent(this, Hilfe.class);
             startActivity(intent);
         }
-        if (view == bLöschen) {
+        if (view == iVLöschen) {
             /////////////////////////////////////////////////////////////////////////
 
         }
