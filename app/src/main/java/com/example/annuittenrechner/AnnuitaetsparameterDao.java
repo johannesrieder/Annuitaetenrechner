@@ -9,15 +9,15 @@ import androidx.room.Query;
 import java.util.List;
 
 @Dao
-public interface AnnuitaetDao {
+public interface AnnuitaetsparameterDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(Annuitaet annuitaet);
+    void insert(Annuitaetsparameter annuitaetsparameter);
 
-    @Query("SELECT * from Annuitaet")
-    List<Annuitaet> getAll();
+    @Query("SELECT * from Annuitaetsparameter")
+    List<Annuitaetsparameter> getAll();
 
     @Delete
-    void delete(Annuitaet annuitaet);
+    void delete(Annuitaetsparameter annuitaetsparameter);
 
 }

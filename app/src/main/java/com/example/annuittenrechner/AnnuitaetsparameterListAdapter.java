@@ -12,18 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Collections;
 import java.util.List;
 
-class AnnuitaetViewHolder extends RecyclerView.ViewHolder {
-    AnnuitaetViewHolder(@NonNull View itemView){
-        super(itemView);
-    }
-}
+public class AnnuitaetsparameterListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-public class AnnuitaetListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private List<Annuitaetsparameter> aps = Collections.emptyList();
+    private final AnnuitaetsparameterDao dao;
 
-    private List<Annuitaet> annuitaets = Collections.emptyList();
-    private final AnnuitaetDao dao;
-
-    public AnnuitaetListAdapter(AnnuitaetDao dao){
+    public AnnuitaetsparameterListAdapter(AnnuitaetsparameterDao dao){
         this.dao = dao;
     }
 
@@ -34,7 +28,7 @@ public class AnnuitaetListAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.listitem_annuitaet, parent, false);
-        return new AnnuitaetViewHolder(view);
+        return new AnnuitaetsparameterViewHolder(view);
     }
 
     @Override
@@ -47,43 +41,43 @@ public class AnnuitaetListAdapter extends RecyclerView.Adapter<RecyclerView.View
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        zinsView.setText("zinssatz");
-        darlehenView.setText("darlehenssumme");
-        laufzeitView.setText("laufzeit");
-        annuitaetView.setText(annuitaets.get(position).getAnnuitaet());
+        annuitaetView.setText(aps.get(position).getAnnuität());
         annuitaetView.setOnClickListener((view) ->{
-         new DeleteAnnuitaetTask(dao,this).execute(annuitaets.get(position));
+            new DeleteAnnuitaetsparameterTask(dao,this).execute(aps.get(position));
         });
+        darlehenView.setText(aps.get(position).getDarlehenssumme());
+        zinsView.setText(aps.get(position).getZinssatz());
+        laufzeitView.setText(aps.get(position).getLaufzeit());
     }
 
     @Override
     public int getItemCount() {
-        return annuitaets.size();}
+        return aps.size();}
 
-    public void setAnnuitaets(List<Annuitaet> annuitaets){
-        this.annuitaets = annuitaets;
+    public void setAps(List<Annuitaetsparameter> aps){
+        this.aps = aps;
         notifyDataSetChanged();
     }
-    static class DeleteAnnuitaetTask extends AsyncTask<Annuitaet, Void, List<Annuitaet>> {
+    static class DeleteAnnuitaetsparameterTask extends AsyncTask<Annuitaetsparameter, Void, List<Annuitaetsparameter>> {
 
-        private final AnnuitaetDao dao;
-        private final AnnuitaetListAdapter adapter;
+        private final AnnuitaetsparameterDao dao;
+        private final AnnuitaetsparameterListAdapter adapter;
 
-        public DeleteAnnuitaetTask(AnnuitaetDao dao, AnnuitaetListAdapter adapter) {
+        public DeleteAnnuitaetsparameterTask(AnnuitaetsparameterDao dao, AnnuitaetsparameterListAdapter adapter) {
             this.dao = dao;
             this.adapter = adapter;
         }
 
         @Override
-        protected List<Annuitaet> doInBackground(Annuitaet... annuitaets) {
-            dao.delete(annuitaets[0]);
+        protected List<Annuitaetsparameter> doInBackground(Annuitaetsparameter... aps) {
+            dao.delete(aps[0]);
             return dao.getAll();
         }
 
         @Override
-        protected void onPostExecute(List<Annuitaet> annuitaets) {
-            super.onPostExecute(annuitaets);
-            adapter.setAnnuitaets(annuitaets);
+        protected void onPostExecute(List<Annuitaetsparameter> aps) {
+            super.onPostExecute(aps);
+            adapter.setAps(aps);
         }
     }
 
