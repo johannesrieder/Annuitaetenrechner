@@ -40,7 +40,7 @@
         android:layout_centerHorizontal="true"
 
         android:layout_below="@+id/tV_ergebnis_titel"
-        android:src="@drawable/pic2" />
+        android:src="@drawable/ergebnisheader" />
 
     <TextView
         android:id="@+id/tV_ergebnis_ergebnis"

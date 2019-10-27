@@ -8,25 +8,11 @@
 
     <RelativeLayout
         android:id="@+id/rL_listItem_alle"
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
 
-        <TextView
-            android:id="@+id/v_listItem_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/rounded_view"
-            android:clickable="true">
-        </TextView>
-
-        <RelativeLayout
-            android:id="@+id/rL_listItem_topOfAlle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_alignParentTop="true">
+        android:background="@drawable/rounded_view">
 
         <TextView
             android:id="@+id/tV_listItem_annuitaet"
@@ -34,7 +20,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:layout_centerVertical="true"
 
             android:padding="5dp"
 
@@ -50,8 +35,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_toLeftOf="@id/bLöschen"
-            android:layout_centerVertical="true"
-
             android:padding="5dp"
 
             android:textSize="10sp"
@@ -65,18 +48,8 @@
             android:layout_height="30dp"
             android:layout_margin="10dp"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
             />
-        </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/rL_listItem_bottomOfAlle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_below="@id/rL_listItem_topOfAlle">
         <TextView
             android:id="@+id/tV_listItem_darlehenssumme"
 
@@ -86,7 +59,7 @@
             android:layout_marginRight="15dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="15dp"
-            android:layout_alignParentStart="true"
+            android:layout_below="@id/tV_listItem_annuitaet"
 
             android:padding="5dp"
 
@@ -142,7 +115,6 @@
             android:textSize="10sp"
             android:textColor="@android:color/white"
             android:background="@drawable/rounded_textview"/>
-        </RelativeLayout>
 
     </RelativeLayout>
 

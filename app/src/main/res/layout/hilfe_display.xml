@@ -147,7 +147,7 @@
             android:id="@+id/SVerlaufButton2"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="Berechnungsverlauf öffnen"
+            android:text="Verlauf öffnen"
             android:layout_below="@+id/b_verlauf_startseite"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"

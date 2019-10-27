@@ -40,7 +40,7 @@
         android:layout_centerHorizontal="true"
 
         android:layout_below="@+id/tV_activityMain_titel"
-        android:src="@drawable/pic1" />
+        android:src="@drawable/mainheader" />
 
     <RelativeLayout
         android:id="@+id/rL_activityMain"
