@@ -1,96 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tV_ergebnis_titel"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+
+        android:text="Ergebnis"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#2c3e50"/>
 
     <ImageView
-        android:id="@+id/imageHeader2"
-        android:layout_marginTop="50dp"
+        android:id="@+id/iV_ergebnis_header"
+
         android:layout_width="203dp"
         android:layout_height="265dp"
         android:layout_centerHorizontal="true"
+
+        android:layout_below="@+id/tV_ergebnis_titel"
         android:src="@drawable/pic2" />
 
     <TextView
-        android:id="@+id/tVErgebnis"
-        android:layout_marginTop="-40dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"
+        android:id="@+id/tV_ergebnis_ergebnis"
+
+        android:layout_marginTop="-60dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_below="@+id/imageHeader2"
+        android:layout_below="@+id/iV_ergebnis_header"
+
         android:text="2000 Euro"
+        android:textSize="40sp"
+        android:textColor="@android:color/white"
         android:textAlignment="center"
         android:gravity="center"
-        android:textSize="40sp"
-        android:background="@drawable/bordered_button_ergebnis"
-        android:textColor="@android:color/white"/>
+        android:background="@drawable/rounded_view"
+        />
 
-    <TextView
-        android:id="@+id/tVDarlehenssumme"
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tVErgebnis"
-        android:text=""
-        android:layout_marginStart="50dp"
-        android:textSize="20sp"
-        android:background="@android:color/holo_orange_light"/>
-
-    <TextView
-        android:id="@+id/tVZinssatz"
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tVDarlehenssumme"
-        android:text=""
-        android:layout_marginStart="50dp"
-        android:textSize="20sp"
-        android:background="@android:color/holo_orange_light"/>
-
-    <TextView
-        android:id="@+id/tVLaufzeit"
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tVZinssatz"
-        android:text=""
-        android:layout_marginStart="50dp"
-        android:textSize="20sp"
-        android:background="@android:color/holo_orange_light"/>
-
-    <Button
-        android:id="@+id/bNeueBerechnung"
-        android:layout_marginTop="80dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="120dp"
+    <RelativeLayout
+        android:id="@+id/rL_ergebnis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tVZinssatz"
-        android:text="Neue Berechnung"
-        android:textSize="20sp"
-        android:background="@drawable/bordered_button_rieder" />
+        android:layout_marginTop="-10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_below="@id/tV_ergebnis_ergebnis"
+        android:background="@drawable/rounded_view_ergebnis">
 
-    <Button
-        android:id="@+id/bBerechnungsverlauf"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="80dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bNeueBerechnung"
-        android:text="Berechnungsverlauf"
-        android:textSize="20sp"
-        android:background="@drawable/bordered_button_rieder" />
+        <TextView
+            android:id="@+id/tV_ergebnis_darlehenssumme"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+
+            android:text=""
+            android:textSize="20sp"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/tV_ergebnis_zinssatz"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_below="@+id/tV_ergebnis_darlehenssumme"
+
+            android:text=""
+            android:textSize="20sp"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/tV_ergebnis_laufzeit"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_below="@+id/tV_ergebnis_zinssatz"
+
+            android:text=""
+            android:textSize="20sp"
+            android:textColor="@android:color/white"/>
 
     </RelativeLayout>
 
-</ScrollView>
+    <Button
+        android:id="@+id/b_ergebnis_neueBerechnung"
+
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@id/b_ergebnis_zeigeVerlauf"
+
+        android:text="Neue Berechnung"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+
+        android:background="@drawable/cornered_orange_button" />
+
+    <Button
+        android:id="@+id/b_ergebnis_zeigeVerlauf"
+
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="40dp"
+
+        android:background="@drawable/cornered_orange_button"
+        android:text="Berechnungsverlauf öffnen"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+
+        android:textStyle="bold"/>
+
+</RelativeLayout>

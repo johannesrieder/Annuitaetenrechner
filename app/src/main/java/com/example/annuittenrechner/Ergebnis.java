@@ -22,18 +22,18 @@ public class Ergebnis  extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ergebnis_display);
 
-        NeueBerechnung = findViewById(R.id.bNeueBerechnung);
+        NeueBerechnung = findViewById(R.id.b_ergebnis_neueBerechnung);
         NeueBerechnung.setOnClickListener(this);
-        Berechnungsverlauf = findViewById(R.id.bBerechnungsverlauf);
+        Berechnungsverlauf = findViewById(R.id.b_ergebnis_zeigeVerlauf);
         Berechnungsverlauf.setOnClickListener((view) -> {
             Intent intent = new Intent(this, Verlauf.class);
             startActivity(intent);
         });
 
-        Ergebnis = findViewById(R.id.tVErgebnis);
-        Darlehenssumme = findViewById(R.id.tVDarlehenssumme);
-        Zinssatz = findViewById(R.id.tVZinssatz);
-        Laufzeit = findViewById(R.id.tVLaufzeit);
+        Ergebnis = findViewById(R.id.tV_ergebnis_ergebnis);
+        Darlehenssumme = findViewById(R.id.tV_ergebnis_darlehenssumme);
+        Zinssatz = findViewById(R.id.tV_ergebnis_zinssatz);
+        Laufzeit = findViewById(R.id.tV_ergebnis_laufzeit);
 
         Intent intent = getIntent();
         String annuität = intent.getStringExtra("annuität");

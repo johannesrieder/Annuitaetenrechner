@@ -16,7 +16,7 @@ public class Hilfe extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hilfe_display);
-        HStartseiteButton = findViewById(R.id.HStartseiteButton);
+        HStartseiteButton = findViewById(R.id.b_verlauf_startseite);
         SVerlaufButton2 = findViewById(R.id.SVerlaufButton2);
 
         HStartseiteButton.setOnClickListener(this);

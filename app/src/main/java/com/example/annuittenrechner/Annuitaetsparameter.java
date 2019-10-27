@@ -3,6 +3,7 @@ package com.example.annuittenrechner;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+
 @Entity
 public class Annuitaetsparameter {
 
@@ -13,13 +14,15 @@ public class Annuitaetsparameter {
     private final String zinssatz;
     private final String laufzeit;
     private final String kommentar;
+    private final String datum;
 
-    public Annuitaetsparameter(String annuität, String darlehenssumme, String zinssatz, String laufzeit, String kommentar) {
+    public Annuitaetsparameter(String annuität, String darlehenssumme, String zinssatz, String laufzeit, String kommentar, String datum) {
         this.annuität = annuität;
         this.darlehenssumme = darlehenssumme;
         this.zinssatz = zinssatz;
         this.laufzeit = laufzeit;
         this.kommentar = kommentar;
+        this.datum = datum;
     }
 
     public int getId() {
@@ -48,6 +51,10 @@ public class Annuitaetsparameter {
 
     public String getKommentar() {
         return kommentar;
+    }
+
+    public String getDatum() {
+        return datum;
     }
 
 }

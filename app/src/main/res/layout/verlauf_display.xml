@@ -1,73 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/verlauf_linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Verlauf"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tVTitel"
+        android:id="@+id/tV_verlauf_titel"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="40dp"
+
         android:text="Berechnungsverlauf"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
         android:textSize="30sp"
-        android:textColor="#212121"/>
+        android:textStyle="bold"
+        android:textColor="#2c3e50"/>
 
     <ImageView
-        android:id="@+id/iVhelpicon"
+        android:id="@+id/iV_verlauf_helpIcon"
+
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_gravity="right"
-       android:layout_toRightOf="@+id/tVTitel"
+        android:layout_alignParentRight="true"
+
         android:src="@drawable/help"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="3dp"
         android:clickable="true"
         android:onClick="onClick"/>
 
-    <TextView
-        android:id="@+id/Trennlinie1"
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:background="#373737"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/iVhelpicon" />
+        <ScrollView
+            android:id="@+id/verlauf_scrollView"
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/annuitaet_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/Trennlinie1"/>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tV_verlauf_titel"
+            android:layout_above="@+id/b_verlauf_startseite"
 
-     <TextView
-         android:id="@+id/Trennlinie2"
-         android:layout_width="match_parent"
-         android:layout_height="4dp"
-         android:background="#373737"
-         android:layout_marginTop="20dp"
-         android:layout_below="@+id/annuitaet_recycler" />
+            tools:context=".Verlauf"
+            android:orientation="vertical"
+            >
 
-        <Button
-        android:id="@+id/HStartseiteButton"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rV_verlauf"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                />
+
+        </ScrollView>
+
+    <Button
+        android:id="@+id/b_verlauf_startseite"
+
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Neue Berechnung"
-        android:layout_below="@+id/Trennlinie2"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
+        android:layout_margin="40dp"
+
+        android:text="Neue Berechnung"
         android:textSize="20sp"
-        android:background="@drawable/bordered_button_rieder" />
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
 
-    </RelativeLayout>
+        android:background="@drawable/cornered_orange_button"/>
 
-
-</ScrollView>
+</RelativeLayout>

@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
 
@@ -22,16 +25,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String zinssatz;
     private String laufzeit;
     private String kommentar;
+    private String strDatum;
 
-    EditText eTDarlehenssumme;
-    EditText eTZinssatz;
-    EditText eTLaufzeit;
-    EditText eTKommentar;
+    EditText eT_activityMain_darlehenssumme;
+    EditText eT_activityMain_zinssatz;
+    EditText eT_activityMain_laufzeit;
+    EditText eT_activityMain_kommentar;
 
-    protected Button ZSAnnuitätButton;
-    protected Button ZVerlaufButton;
+    protected Button b_activityMain_berechneAnnuitaet;
+    protected Button b_activityMain_zeigeVerlauf;
 
-    ImageView iVhelpicon;
+    ImageView iV_activityMain_helpIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,72 +44,79 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         dao = AnnuitaetsparameterRoomDatabase.getDatabase(this).annuitaetsparameterDao();
 
-        eTDarlehenssumme = findViewById(R.id.eTDarlehenssumme);
-        eTZinssatz = findViewById(R.id.eTZinssatz);
-        eTLaufzeit = findViewById(R.id.eTLaufzeit);
-        eTKommentar = findViewById(R.id.eTKommentar);
+        eT_activityMain_darlehenssumme = findViewById(R.id.eT_activityMain_darlehenssumme);
+        eT_activityMain_zinssatz = findViewById(R.id.eT_activityMain_zinssatz);
+        eT_activityMain_laufzeit = findViewById(R.id.eT_activityMain_laufzeit);
+        eT_activityMain_kommentar = findViewById(R.id.eT_activityMain_kommentar);
 
-        ZSAnnuitätButton = findViewById(R.id.AnnuitätButton);
-        ZSAnnuitätButton.setOnClickListener(this);
+        b_activityMain_berechneAnnuitaet = findViewById(R.id.b_activityMain_berechneAnnuitaet);
+        b_activityMain_berechneAnnuitaet.setOnClickListener(this);
 
-        ZVerlaufButton = findViewById(R.id.BerechnungsverlaufButton);
-        ZVerlaufButton.setOnClickListener(this);
+        b_activityMain_zeigeVerlauf = findViewById(R.id.b_activityMain_zeigeVerlauf);
+        b_activityMain_zeigeVerlauf.setOnClickListener(this);
 
-        iVhelpicon = findViewById(R.id.iVhelpicon);
+        iV_activityMain_helpIcon = findViewById(R.id.iV_verlauf_helpIcon);
     }
 
-    public double leseDarlehenssumme() { return Double.parseDouble(eTDarlehenssumme.getText().toString()); }
+    public double leseDarlehenssumme() { return Double.parseDouble(eT_activityMain_darlehenssumme.getText().toString()); }
 
-    public double leseZinssatz() { return Double.parseDouble(eTZinssatz.getText().toString())/100; }
+    public double leseZinssatz() { return Double.parseDouble(eT_activityMain_zinssatz.getText().toString())/100; }
 
-    public int leseLaufzeit() { return Integer.parseInt(eTLaufzeit.getText().toString()); }
+    public int leseLaufzeit() { return Integer.parseInt(eT_activityMain_laufzeit.getText().toString()); }
 
     public double berechneAnnuität(double darlehenssumme, double zinssatz, int laufzeit) {
     double annuität = darlehenssumme * (Math.pow(1 + zinssatz, laufzeit) * (zinssatz / (Math.pow(1 + zinssatz, laufzeit) - 1)));
     annuität = Math.round(annuität * 100.0) / 100.0;
     return annuität;
-}
+    }
 
     public void onClick(View view) {
-        if (view == ZSAnnuitätButton) {
-            darlehenssumme = eTDarlehenssumme.getText().toString(); //editText erst lesen, dann prüfen und dann berechnen -> string parameter wird zuvor erzeugt
-            zinssatz = eTZinssatz.getText().toString();
-            laufzeit = eTLaufzeit.getText().toString();
-            kommentar = eTKommentar.getText().toString();
+        if (view == b_activityMain_berechneAnnuitaet) {
+            darlehenssumme = eT_activityMain_darlehenssumme.getText().toString(); //editText erst lesen, dann prüfen und dann berechnen -> string parameter wird zuvor erzeugt
+            zinssatz = eT_activityMain_zinssatz.getText().toString();
+            laufzeit = eT_activityMain_laufzeit.getText().toString();
+            kommentar = eT_activityMain_kommentar.getText().toString();
             if (!darlehenssumme.equals("") && !zinssatz.equals("") && !laufzeit.equals("")) {
                 annuität = Double.toString(berechneAnnuität(leseDarlehenssumme(),leseZinssatz(),leseLaufzeit()));
+
                 Intent intent = new Intent(this, Ergebnis.class);
                 intent.putExtra("annuität", annuität);
                 intent.putExtra("darlehenssumme", darlehenssumme);
                 intent.putExtra("zinssatz", zinssatz);
                 intent.putExtra("laufzeit", laufzeit);
+
                 zinssatz = Double.toString(leseZinssatz()*100);
+
                 startActivity(intent);
+
+                Date date = Calendar.getInstance().getTime();
+                DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+                strDatum = dateFormat.format(date);
+
                 Intent intent2 = new Intent(this, Verlauf.class);
-                Date datum = Calendar.getInstance().getTime();
-                intent2.putExtra("Datum",datum);
-                intent2.putExtra("Kommentar",eTKommentar.getText());
+                intent2.putExtra("Datum",strDatum);
+                intent2.putExtra("Kommentar", eT_activityMain_kommentar.getText());
                 saveAnnuitaetsparameterOnClick();
             } else {
-                if (eTDarlehenssumme.getText().toString().isEmpty()) {
-                    eTDarlehenssumme.setHintTextColor(Color.RED);
+                if (eT_activityMain_darlehenssumme.getText().toString().isEmpty()) {
+                    eT_activityMain_darlehenssumme.setHintTextColor(Color.RED);
                 }
-                if (eTZinssatz.getText().toString().isEmpty()) {
-                    eTZinssatz.setHintTextColor(Color.RED);
+                if (eT_activityMain_zinssatz.getText().toString().isEmpty()) {
+                    eT_activityMain_zinssatz.setHintTextColor(Color.RED);
                 }
-                if (eTLaufzeit.getText().toString().isEmpty()) {
-                    eTLaufzeit.setHintTextColor(Color.RED);
+                if (eT_activityMain_laufzeit.getText().toString().isEmpty()) {
+                    eT_activityMain_laufzeit.setHintTextColor(Color.RED);
                 }
                 Toast laufzeitToast =
                         Toast.makeText(this, "Eingaben unvollständig!", Toast.LENGTH_LONG);
                 laufzeitToast.show();
             }
 
-        } else if(view == iVhelpicon){
+        } else if(view == iV_activityMain_helpIcon){
             Intent intent = new Intent(this, Hilfe.class);
             startActivity(intent);
         }
-        else if(view == ZVerlaufButton){
+        else if(view == b_activityMain_zeigeVerlauf){
             Intent intent = new Intent(this, Verlauf.class);
             startActivity(intent);
         }
@@ -114,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void saveAnnuitaetsparameterOnClick() {
         if(!annuität.equals("")){
             new SpeichernTask()
-                    .execute(new Annuitaetsparameter(annuität, darlehenssumme, zinssatz, laufzeit,kommentar));
+                    .execute(new Annuitaetsparameter(annuität, darlehenssumme, zinssatz, laufzeit, kommentar, strDatum));
         }
     }
 

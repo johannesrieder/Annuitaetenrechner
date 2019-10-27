@@ -29,12 +29,12 @@ public class Verlauf extends AppCompatActivity implements View.OnClickListener {
 
         dao = AnnuitaetsparameterRoomDatabase.getDatabase(this).annuitaetsparameterDao();
 
-        recyclerView = findViewById(R.id.annuitaet_recycler);
+        recyclerView = findViewById(R.id.rV_verlauf);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new AnnuitaetsparameterListAdapter(dao);
         recyclerView.setAdapter(adapter);
-        HStartseiteButton = findViewById(R.id.HStartseiteButton);
-        iVhelpicon = findViewById(R.id.iVhelpicon);
+        HStartseiteButton = findViewById(R.id.b_verlauf_startseite);
+        iVhelpicon = findViewById(R.id.iV_verlauf_helpIcon);
         iVLöschen = findViewById(R.id.bLöschen);
         HStartseiteButton.setOnClickListener(this);
     }
