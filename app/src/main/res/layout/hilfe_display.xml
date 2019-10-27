@@ -42,6 +42,7 @@
             android:textSize="20sp"
             android:textColor="@android:color/white"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_below="@+id/hilfeheader"
             android:background="@drawable/rounded_view"
             android:padding="5dp"/>
@@ -50,7 +51,8 @@
             android:id="@+id/tVErläuterung"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             android:text="Jahreszahlung an Zinsen und Tilgungsraten bei der Amortisation einer Schuld. (Duden, 2019)"
             android:layout_below="@+id/tVErläuterungTitel" />
 
@@ -64,6 +66,7 @@
             android:textSize="20sp"
             android:textColor="@android:color/white"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/rounded_view"
             android:padding="5dp"/>
 
@@ -85,6 +88,7 @@
             android:textSize="20sp"
             android:textColor="@android:color/white"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/rounded_view"
             android:padding="5dp"/>
 
@@ -92,7 +96,8 @@
             android:id="@+id/tVErläuterungFormel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             android:text="Herr Bauer erbt am 1. Januar 2004  10.000€. Er denkt darüber nach, diesen Betrag in den kommenden 3 Jahren auszugeben. Die Annuität kann in diesem Fall folgende Frage beantworten:"
             android:layout_below="@+id/tVErläuterungFormelTitel" />
 
@@ -100,17 +105,17 @@
             android:id="@+id/tVErläuterungFormel2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             android:text="Welcher Geldbetrag steht ihm jedes Jahr zur Verfügung, wenn der Kalkulationszinssatz 5 % beträgt und das Geld nach 7 Jahren aufgebraucht sein darf?"
             android:textStyle="italic"
-            android:layout_below="@+id/tVErläuterungFormel"
-            android:layout_marginTop="10dp"/>
+            android:layout_below="@+id/tVErläuterungFormel" />
 
         <ImageView
             android:id="@+id/iVberechnung"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:src="@drawable/beispielrechnung"
             android:layout_below="@id/tVErläuterungFormel2"
             android:layout_marginTop="10dp"/>
@@ -119,10 +124,10 @@
             android:id="@+id/tVErgebnisBeispiel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             android:text="Die Annuität beträgt somit 1.728,20€."
-            android:layout_below="@+id/iVberechnung"
-            android:layout_marginTop="10dp"/>
+            android:layout_below="@+id/iVberechnung" />
 
 
         <Button
