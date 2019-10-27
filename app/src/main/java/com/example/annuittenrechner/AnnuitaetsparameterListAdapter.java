@@ -1,10 +1,13 @@
 package com.example.annuittenrechner;
 
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,6 +45,7 @@ public class AnnuitaetsparameterListAdapter extends RecyclerView.Adapter<Recycle
         TextView kommentarView = holder.itemView.findViewById(R.id.tV_listItem_kommentar);
         TextView datumView = holder.itemView.findViewById(R.id.tV_listItem_datum);
         ImageView bLöschen = holder.itemView.findViewById(R.id.bLöschen);
+        TextView v_listItem_content = holder.itemView.findViewById(R.id.v_listItem_content);
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         annuitaetView.setText(aps.get(position).getAnnuität()+" €");
@@ -52,6 +56,11 @@ public class AnnuitaetsparameterListAdapter extends RecyclerView.Adapter<Recycle
         datumView.setText(aps.get(position).getDatum());
         bLöschen.setOnClickListener((view) ->{
             new DeleteAnnuitaetsparameterTask(dao,this).execute(aps.get(position));
+        });
+        v_listItem_content.setOnClickListener((view) ->{
+            v_listItem_content.getLayoutParams().height = 500;
+            v_listItem_content.setHeight(500);
+            Log.w("test","test#####################################################");
         });
     }
 

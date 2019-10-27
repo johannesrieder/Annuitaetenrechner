@@ -20,6 +20,19 @@
         android:textColor="#2c3e50"/>
 
     <ImageView
+        android:id="@+id/iV_activityErgebnis_helpIcon"
+
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="165dp"
+        android:layout_toRightOf="@+id/tV_ergebnis_titel"
+
+        android:src="@drawable/help"
+        android:clickable="true"
+        android:onClick="onClick"/>
+
+    <ImageView
         android:id="@+id/iV_ergebnis_header"
 
         android:layout_width="203dp"

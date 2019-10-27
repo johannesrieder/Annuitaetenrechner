@@ -15,51 +15,42 @@
             android:id="@+id/tVHilfe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Hilfeseite"
-            android:textStyle="bold"
-            android:textSize="30sp"
-            android:textColor="#212121"/>
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="40dp"
 
-        <TextView
-            android:id="@+id/Trennlinie1"
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="#373737"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/tVHilfe" />
+            android:text="Hilfeseite"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#2c3e50"/>
+
 
         <ImageView
             android:id="@+id/hilfeheader"
             android:layout_width="280dp"
             android:layout_height="240dp"
-            android:layout_below="@+id/Trennlinie1"
+            android:layout_below="@+id/tVHilfe"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="30dp"
             android:src="@drawable/hilfeheader" />
-
-        <TextView
-            android:id="@+id/Trennlinie2"
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="#373737"
-            android:layout_below="@+id/hilfeheader" />
 
         <TextView
             android:id="@+id/tVErläuterungTitel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Erläuterung Annuität"
-            android:layout_below="@+id/Trennlinie2"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:textColor="#212121"
-            android:layout_marginTop="10dp"/>
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/hilfeheader"
+            android:background="@drawable/rounded_view"
+            android:padding="5dp"/>
 
         <TextView
             android:id="@+id/tVErläuterung"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:text="Jahreszahlung an Zinsen und Tilgungsraten bei der Amortisation einer Schuld. (Duden, 2019)"
             android:layout_below="@+id/tVErläuterungTitel" />
 
@@ -71,13 +62,16 @@
             android:layout_below="@+id/tVErläuterung"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:textColor="#212121"
-            android:layout_marginTop="10dp"/>
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_view"
+            android:padding="5dp"/>
 
         <ImageView
             android:id="@+id/iVFormel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:src="@drawable/formel"
             android:layout_below="@+id/tVFormelTitel"/>
 
@@ -89,13 +83,16 @@
             android:layout_below="@+id/iVFormel"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:textColor="#212121"
-            android:layout_marginTop="10dp"/>
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_view"
+            android:padding="5dp"/>
 
         <TextView
             android:id="@+id/tVErläuterungFormel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:text="Herr Bauer erbt am 1. Januar 2004  10.000€. Er denkt darüber nach, diesen Betrag in den kommenden 3 Jahren auszugeben. Die Annuität kann in diesem Fall folgende Frage beantworten:"
             android:layout_below="@+id/tVErläuterungFormelTitel" />
 
@@ -103,6 +100,7 @@
             android:id="@+id/tVErläuterungFormel2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:text="Welcher Geldbetrag steht ihm jedes Jahr zur Verfügung, wenn der Kalkulationszinssatz 5 % beträgt und das Geld nach 7 Jahren aufgebraucht sein darf?"
             android:textStyle="italic"
             android:layout_below="@+id/tVErläuterungFormel"
@@ -112,6 +110,7 @@
             android:id="@+id/iVberechnung"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:src="@drawable/beispielrechnung"
             android:layout_below="@id/tVErläuterungFormel2"
             android:layout_marginTop="10dp"/>
@@ -120,25 +119,19 @@
             android:id="@+id/tVErgebnisBeispiel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:text="Die Annuität beträgt somit 1.728,20€."
             android:layout_below="@+id/iVberechnung"
             android:layout_marginTop="10dp"/>
 
-        <TextView
-            android:id="@+id/Trennlinie4"
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="#373737"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/tVErgebnisBeispiel" />
 
         <Button
             android:id="@+id/b_verlauf_startseite"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="Neue Berechnung"
-            android:layout_below="@+id/Trennlinie4"
             android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tVErgebnisBeispiel"
             android:layout_marginTop="15dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
@@ -159,7 +152,5 @@
             android:background="@drawable/cornered_orange_button"
             android:layout_marginBottom="25dp"/>
 
-
     </RelativeLayout>
-
 </ScrollView>

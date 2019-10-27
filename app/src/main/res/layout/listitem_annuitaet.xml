@@ -10,12 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <View
+        <TextView
             android:id="@+id/v_listItem_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_view">
-        </View>
+            android:layout_height="70dp"
+            android:background="@drawable/rounded_view"
+            android:clickable="true">
+        </TextView>
 
         <TextView
             android:id="@+id/tV_listItem_annuitaet"
@@ -30,8 +31,7 @@
 
             android:background="@drawable/rounded_textview"
             android:textSize="20sp"
-            android:textColor="@android:color/white"
-        />
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/tV_listItem_datum"

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ public class Ergebnis  extends AppCompatActivity implements View.OnClickListener
     TextView Laufzeit;
     Button NeueBerechnung;
     Button Berechnungsverlauf;
+    ImageView iV_activityErgebnis_helpIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class Ergebnis  extends AppCompatActivity implements View.OnClickListener
         Darlehenssumme = findViewById(R.id.tV_ergebnis_darlehenssumme);
         Zinssatz = findViewById(R.id.tV_ergebnis_zinssatz);
         Laufzeit = findViewById(R.id.tV_ergebnis_laufzeit);
+        iV_activityErgebnis_helpIcon = findViewById(R.id.iV_activityErgebnis_helpIcon);
 
         Intent intent = getIntent();
         String annuität = intent.getStringExtra("annuität");
@@ -54,6 +57,10 @@ public class Ergebnis  extends AppCompatActivity implements View.OnClickListener
         }
         if(view == Berechnungsverlauf){
             Intent intent = new Intent(this, Verlauf.class);
+            startActivity(intent);
+        }
+        if(view == iV_activityErgebnis_helpIcon){
+            Intent intent = new Intent(this,Hilfe.class);
             startActivity(intent);
         }
 

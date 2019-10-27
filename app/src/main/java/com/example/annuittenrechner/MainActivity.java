@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         b_activityMain_zeigeVerlauf = findViewById(R.id.b_activityMain_zeigeVerlauf);
         b_activityMain_zeigeVerlauf.setOnClickListener(this);
 
-        iV_activityMain_helpIcon = findViewById(R.id.iV_verlauf_helpIcon);
+        iV_activityMain_helpIcon = findViewById(R.id.iV_activityMain_helpIcon);
     }
 
     public double leseDarlehenssumme() { return Double.parseDouble(eT_activityMain_darlehenssumme.getText().toString()); }

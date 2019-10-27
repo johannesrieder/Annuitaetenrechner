@@ -3,6 +3,7 @@ package com.example.annuittenrechner;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -56,10 +57,6 @@ public class Verlauf extends AppCompatActivity implements View.OnClickListener {
         if (view == iVhelpicon) {
             Intent intent = new Intent(this, Hilfe.class);
             startActivity(intent);
-        }
-        if (view == iVLöschen) {
-            /////////////////////////////////////////////////////////////////////////
-
         }
     }
 
