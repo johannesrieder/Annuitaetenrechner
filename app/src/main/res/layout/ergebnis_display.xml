@@ -142,7 +142,7 @@
         android:layout_marginBottom="40dp"
 
         android:background="@drawable/cornered_orange_button"
-        android:text="Berechnungsverlauf öffnen"
+        android:text="Verlauf öffnen"
         android:textColor="@android:color/white"
         android:textSize="20sp"
 

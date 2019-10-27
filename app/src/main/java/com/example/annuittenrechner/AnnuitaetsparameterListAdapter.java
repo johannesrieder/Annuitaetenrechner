@@ -45,22 +45,15 @@ public class AnnuitaetsparameterListAdapter extends RecyclerView.Adapter<Recycle
         TextView kommentarView = holder.itemView.findViewById(R.id.tV_listItem_kommentar);
         TextView datumView = holder.itemView.findViewById(R.id.tV_listItem_datum);
         ImageView bLöschen = holder.itemView.findViewById(R.id.bLöschen);
-        TextView v_listItem_content = holder.itemView.findViewById(R.id.v_listItem_content);
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         annuitaetView.setText(aps.get(position).getAnnuität()+" €");
-        darlehenView.setText(aps.get(position).getDarlehenssumme());
-        zinsView.setText(aps.get(position).getZinssatz());
-        laufzeitView.setText(aps.get(position).getLaufzeit());
-        kommentarView.setText(aps.get(position).getKommentar());
+        darlehenView.setText("Darlehenssumme: "+aps.get(position).getDarlehenssumme()+" €");
+        zinsView.setText("Zinssatz: "+aps.get(position).getZinssatz()+" %");
+        laufzeitView.setText("Laufzeit: "+aps.get(position).getLaufzeit()+" Jahre");
+        kommentarView.setText("Kommentar: "+aps.get(position).getKommentar());
         datumView.setText(aps.get(position).getDatum());
         bLöschen.setOnClickListener((view) ->{
             new DeleteAnnuitaetsparameterTask(dao,this).execute(aps.get(position));
-        });
-        v_listItem_content.setOnClickListener((view) ->{
-            ViewGroup.LayoutParams params = v_listItem_content.getLayoutParams();
-            params.height = 300;
-            v_listItem_content.setLayoutParams(params);
         });
 
     }

@@ -26,8 +26,8 @@
 
         <ImageView
             android:id="@+id/hilfeheader"
-            android:layout_width="280dp"
-            android:layout_height="240dp"
+            android:layout_width="203dp"
+            android:layout_height="265dp"
             android:layout_below="@+id/tVHilfe"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
