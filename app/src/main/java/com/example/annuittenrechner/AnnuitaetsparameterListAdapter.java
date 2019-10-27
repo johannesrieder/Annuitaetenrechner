@@ -58,10 +58,11 @@ public class AnnuitaetsparameterListAdapter extends RecyclerView.Adapter<Recycle
             new DeleteAnnuitaetsparameterTask(dao,this).execute(aps.get(position));
         });
         v_listItem_content.setOnClickListener((view) ->{
-            v_listItem_content.getLayoutParams().height = 500;
-            v_listItem_content.setHeight(500);
-            Log.w("test","test#####################################################");
+            ViewGroup.LayoutParams params = v_listItem_content.getLayoutParams();
+            params.height = 300;
+            v_listItem_content.setLayoutParams(params);
         });
+
     }
 
     @Override
