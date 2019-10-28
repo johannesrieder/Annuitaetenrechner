@@ -108,7 +108,7 @@
             android:hint="In Prozent"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:backgroundTint="#5c6bc0"/>
 
         <TextView
