@@ -12,9 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
 
-        android:text="Ergebnis"
+        android:text="@string/TitelErgebnis"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="#2c3e50"/>
@@ -25,8 +25,8 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="40dp"
-        android:layout_marginLeft="165dp"
-        android:layout_toRightOf="@+id/tV_ergebnis_titel"
+        android:layout_marginStart="165dp"
+        android:layout_toEndOf="@+id/tV_ergebnis_titel"
 
         android:src="@drawable/help"
         android:clickable="true"
@@ -52,13 +52,11 @@
         android:layout_height="100dp"
         android:layout_below="@+id/iV_ergebnis_header"
 
-        android:text="2000 Euro"
         android:textSize="40sp"
         android:textColor="@android:color/white"
         android:textAlignment="center"
         android:gravity="center"
-        android:background="@drawable/rounded_view"
-        />
+        android:background="@drawable/rounded_view" />
 
     <RelativeLayout
         android:id="@+id/rL_ergebnis"
@@ -78,7 +76,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
 
-            android:text=""
             android:textSize="20sp"
             android:textColor="@android:color/white"/>
 
@@ -91,7 +88,6 @@
             android:layout_marginStart="20dp"
             android:layout_below="@+id/tV_ergebnis_darlehenssumme"
 
-            android:text=""
             android:textSize="20sp"
             android:textColor="@android:color/white"/>
 
@@ -105,7 +101,6 @@
             android:layout_marginBottom="20dp"
             android:layout_below="@+id/tV_ergebnis_zinssatz"
 
-            android:text=""
             android:textSize="20sp"
             android:textColor="@android:color/white"/>
 
@@ -123,7 +118,7 @@
         android:layout_marginBottom="20dp"
         android:layout_above="@id/b_ergebnis_zeigeVerlauf"
 
-        android:text="Neue Berechnung"
+        android:text="@string/ButtonBerechnung"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@android:color/white"
@@ -142,7 +137,7 @@
         android:layout_marginBottom="40dp"
 
         android:background="@drawable/cornered_orange_button"
-        android:text="Verlauf öffnen"
+        android:text="@string/ButtonVerlauf"
         android:textColor="@android:color/white"
         android:textSize="20sp"
 

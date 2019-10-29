@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,16 +8,16 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tVHilfe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
 
-            android:text="Hilfeseite"
+            android:text="@string/TitelHilfe"
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="#2c3e50"/>
@@ -37,12 +36,12 @@
             android:id="@+id/tVErläuterungTitel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Erläuterung Annuität"
+            android:text="@string/TitelErläuterung1"
             android:textStyle="bold"
             android:textSize="20sp"
             android:textColor="@android:color/white"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_below="@+id/hilfeheader"
             android:background="@drawable/rounded_view"
             android:padding="5dp"/>
@@ -51,22 +50,22 @@
             android:id="@+id/tVErläuterung"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="Jahreszahlung an Zinsen und Tilgungsraten bei der Amortisation einer Schuld. (Duden, 2019)"
+            android:text="@string/Definition"
             android:layout_below="@+id/tVErläuterungTitel" />
 
         <TextView
             android:id="@+id/tVFormelTitel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Formel Annuität"
+            android:text="@string/TitelFormel"
             android:layout_below="@+id/tVErläuterung"
             android:textStyle="bold"
             android:textSize="20sp"
             android:textColor="@android:color/white"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/rounded_view"
             android:padding="5dp"/>
 
@@ -82,13 +81,13 @@
             android:id="@+id/tVErläuterungFormelTitel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Erläuterung Formel"
+            android:text="@string/TitelForme2"
             android:layout_below="@+id/iVFormel"
             android:textStyle="bold"
             android:textSize="20sp"
             android:textColor="@android:color/white"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/rounded_view"
             android:padding="5dp"/>
 
@@ -96,18 +95,18 @@
             android:id="@+id/tVErläuterungFormel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="Herr Steck erbt am 1. Januar 2004  10.000€. Er denkt darüber nach, diesen Betrag in den kommenden 3 Jahren auszugeben. Die Annuität kann in diesem Fall folgende Frage beantworten:"
+            android:text="@string/TextBeispiel"
             android:layout_below="@+id/tVErläuterungFormelTitel" />
 
         <TextView
             android:id="@+id/tVErläuterungFormel2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="Welcher Geldbetrag steht ihm jedes Jahr zur Verfügung, wenn der Kalkulationszinssatz 5 % beträgt und das Geld nach 7 Jahren aufgebraucht sein darf?"
+            android:text="@string/TextFrage"
             android:textStyle="italic"
             android:layout_below="@+id/tVErläuterungFormel" />
 
@@ -124,9 +123,9 @@
             android:id="@+id/tVErgebnisBeispiel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="Die Annuität beträgt somit 1.728,20€."
+            android:text="@string/TextErgebnis"
             android:layout_below="@+id/iVberechnung" />
 
 
@@ -134,7 +133,7 @@
             android:id="@+id/b_verlauf_startseite"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="Neue Berechnung"
+            android:text="@string/ButtonBerechnungNeu"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/tVErgebnisBeispiel"
             android:layout_marginTop="15dp"
@@ -147,7 +146,7 @@
             android:id="@+id/SVerlaufButton2"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="Verlauf öffnen"
+            android:text="@string/ButtonVerlauf"
             android:layout_below="@+id/b_verlauf_startseite"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"

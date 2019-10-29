@@ -72,11 +72,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void onClick(View view) {
         if (view == b_activityMain_berechneAnnuitaet) {
-            darlehenssumme = eT_activityMain_darlehenssumme.getText().toString(); //editText erst lesen, dann prüfen und dann berechnen -> string parameter wird zuvor erzeugt
+            darlehenssumme = eT_activityMain_darlehenssumme.getText().toString();
             zinssatz = eT_activityMain_zinssatz.getText().toString();
             laufzeit = eT_activityMain_laufzeit.getText().toString();
             kommentar = eT_activityMain_kommentar.getText().toString();
-            if (!darlehenssumme.equals("") && !zinssatz.equals("") && !laufzeit.equals("")) {
+
+            if (!darlehenssumme.equals("") && !zinssatz.equals("") && !laufzeit.equals("") && !darlehenssumme.equals(".") && !zinssatz.equals(".") && ((Double.parseDouble(zinssatz) > 0)) && (Double.parseDouble(laufzeit) > 0)) {
                 annuität = Double.toString(berechneAnnuität(leseDarlehenssumme(),leseZinssatz(),leseLaufzeit()));
 
                 Intent intent = new Intent(this, Ergebnis.class);
@@ -96,8 +97,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent2 = new Intent(this, Verlauf.class);
                 intent2.putExtra("Datum",strDatum);
                 intent2.putExtra("Kommentar", eT_activityMain_kommentar.getText());
-                saveAnnuitaetsparameterOnClick();
-            } else {
+                saveAnnuitaetsparameterOnClick(); }
+
+            else if(darlehenssumme.equals("") || zinssatz.equals("") || laufzeit.equals("")) {
                 if (eT_activityMain_darlehenssumme.getText().toString().isEmpty()) {
                     eT_activityMain_darlehenssumme.setHintTextColor(Color.RED);
                 }
@@ -107,12 +109,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (eT_activityMain_laufzeit.getText().toString().isEmpty()) {
                     eT_activityMain_laufzeit.setHintTextColor(Color.RED);
                 }
-                Toast laufzeitToast =
+                Toast leerToast =
                         Toast.makeText(this, "Eingaben unvollständig!", Toast.LENGTH_LONG);
-                laufzeitToast.show();
+                leerToast.show();
             }
+            else if(darlehenssumme.equals(".") || zinssatz.equals(".")){
+                Toast punktToast =
+                        Toast.makeText(this, "Unerlaubte Zeichen!", Toast.LENGTH_LONG);
+                punktToast.show();
+                if(darlehenssumme.equals(".")){
+                    eT_activityMain_darlehenssumme.setText("");
+                    eT_activityMain_darlehenssumme.setHintTextColor(Color.RED);
+                }
+                if(zinssatz.equals(".")){
+                    eT_activityMain_zinssatz.setText("");
+                    eT_activityMain_zinssatz.setHintTextColor(Color.RED);
+                }
+            }
+            else if((Double.parseDouble(zinssatz) == 0) || (Double.parseDouble(laufzeit) == 0)){
+                Toast nullToast =
+                        Toast.makeText(this, "Eingabe 0 ist nicht erlaubt!", Toast.LENGTH_LONG);
+                nullToast.show();
+                if(Double.parseDouble(zinssatz) == 0){
+                    eT_activityMain_zinssatz.setText("");
+                    eT_activityMain_zinssatz.setHintTextColor(Color.RED);
+                }
+                if(Double.parseDouble(laufzeit) < 0) {
+                    eT_activityMain_laufzeit.setText("");
+                    eT_activityMain_laufzeit.setBackgroundColor(Color.RED);
+                }
 
-        } else if(view == iV_activityMain_helpIcon){
+            }
+        }
+        else if(view == iV_activityMain_helpIcon){
             Intent intent = new Intent(this, Hilfe.class);
             startActivity(intent);
         }
@@ -122,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void saveAnnuitaetsparameterOnClick() {
+    public void saveAnnuitaetsparameterOnClick(){
         if(!annuität.equals("")){
             new SpeichernTask()
                     .execute(new Annuitaetsparameter(annuität, darlehenssumme, zinssatz, laufzeit, kommentar, strDatum));

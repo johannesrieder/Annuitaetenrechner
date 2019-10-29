@@ -34,10 +34,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_toLeftOf="@id/bLöschen"
+            android:layout_toStartOf="@id/bLöschen"
             android:padding="5dp"
 
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:textColor="@android:color/white" />
 
         <ImageView
@@ -47,8 +47,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="10dp"
-            android:layout_alignParentEnd="true"
-            />
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:id="@+id/tV_listItem_darlehenssumme"
@@ -63,7 +62,7 @@
 
             android:padding="5dp"
 
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:textColor="@android:color/white"
             android:background="@drawable/rounded_textview"/>
 
@@ -79,7 +78,7 @@
 
             android:padding="5dp"
 
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:textColor="@android:color/white"
             android:background="@drawable/rounded_textview"/>
 
@@ -88,15 +87,15 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
-            android:layout_toRightOf="@id/tV_listItem_zinssatz"
+            android:layout_toEndOf="@id/tV_listItem_zinssatz"
             android:layout_below="@id/tV_listItem_darlehenssumme"
 
             android:padding="5dp"
 
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:textColor="@android:color/white"
             android:background="@drawable/rounded_textview"/>
 
@@ -112,7 +111,7 @@
 
             android:padding="5dp"
 
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:textColor="@android:color/white"
             android:background="@drawable/rounded_textview"/>
 

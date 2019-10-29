@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">Annuitätenrechner</string>
+    <string name="TitelStart">Start</string>
+    <string name="TitelSumme">Summe:</string>
+    <string name="HintEuro">In Euro</string>
+    <string name="TitelZinssatz">Zinssatz:</string>
+    <string name="HintProzent">In Prozent</string>
+    <string name="TitelLaufzeit">Laufzeit:</string>
+    <string name="HintJahre">In Jahren</string>
+    <string name="TitelKommentar">Kommentar:</string>
+    <string name="HintKommentar">Optionale Bemerkung</string>
+    <string name="ButtonAnnuität">Annuität ermitteln</string>
+    <string name="ButtonVerlauf">Verlauf öffnen</string>
+    <string name="TitelErgebnis">Ergebnis</string>
+    <string name="ButtonBerechnung">Neue Berechnung</string>
+    <string name="TitelHilfe">Hilfeseite</string>
+    <string name="TitelErläuterung1">Erläuterung Annuität</string>
+    <string name="Definition">Jahreszahlung an Zinsen und Tilgungsraten bei der Amortisation einer Schuld. (Duden, 2019)</string>
+    <string name="TitelFormel">Formel Annuität</string>
+    <string name="TitelForme2">Erläuterung Formel</string>
+    <string name="TextBeispiel">Herr Steck erbt am 1. Januar 2004 10.000€. Er denkt darüber nach, diesen Betrag in den kommenden 3 Jahren auszugeben. Die Annuität kann in diesem Fall folgende Frage beantworten:</string>
+    <string name="TextFrage">Welcher Geldbetrag steht ihm jedes Jahr zur Verfügung, wenn der Kalkulationszinssatz 5 % beträgt und das Geld nach 7 Jahren aufgebraucht sein darf?</string>
+    <string name="TextErgebnis">Die Annuität beträgt somit 1.728,20€.</string>
+    <string name="ButtonBerechnungNeu">Neue Berechnung</string>
+    <string name="TitelVerlauf">Verlauf</string>
 </resources>
