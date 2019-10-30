@@ -13,7 +13,7 @@
     <string name="ButtonVerlauf">Verlauf öffnen</string>
     <string name="TitelErgebnis">Ergebnis</string>
     <string name="ButtonBerechnung">Neue Berechnung</string>
-    <string name="TitelHilfe">Hilfeseite</string>
+    <string name="TitelHilfe">Hilfe</string>
     <string name="TitelErläuterung1">Erläuterung Annuität</string>
     <string name="Definition">Jahreszahlung an Zinsen und Tilgungsraten bei der Amortisation einer Schuld. (Duden, 2019)</string>
     <string name="TitelFormel">Formel Annuität</string>
